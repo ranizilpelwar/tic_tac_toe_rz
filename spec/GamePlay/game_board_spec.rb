@@ -1,5 +1,5 @@
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/game_board.rb'
-require_relative '../../TicTacToeRuby.Core.UnitTests/Players/mock_player_manager.rb'
+require_relative '../../test/Players/mock_player_manager.rb'
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
 
