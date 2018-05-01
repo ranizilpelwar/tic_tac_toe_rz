@@ -1,0 +1,4 @@
+File.dirname() + file_pathth spec
+--pattern spec/*/*_spec.rb
+--color
+--format doc
