@@ -52,4 +52,18 @@ class TestMatchTypeManager < Test::Unit::TestCase
     match_type_manager = TicTacToeRZ::MatchTypeManager.new
     assert_false(match_type_manager.valid?(0), "This should not be a valid match.")
   end
+
+  def test_returns_correct_player_type_for_Human_vs_Computer_match_and_player_number_one
+    match_type_manager = TicTacToeRZ::MatchTypeManager.new
+    match_number = 2
+    player_number = 1
+    assert_equal(match_type_manager.player_type(match_number, player_number), "Human")
+  end
+
+  def test_returns_correct_player_type_for_Human_vs_Computer_match_and_player_number_two
+    match_type_manager = TicTacToeRZ::MatchTypeManager.new
+    match_number = 2
+    player_number = 2
+    assert_equal(match_type_manager.player_type(match_number, player_number), "Computer")
+  end
 end

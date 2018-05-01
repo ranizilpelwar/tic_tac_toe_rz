@@ -54,5 +54,17 @@ module TicTacToeRZ
     def input_choices
       choices = get_match_numbers.map(&:to_s)
     end
+
+    def player_type(match_number, player_number)
+      match_type = get_match_type(match_number)
+      case player_number
+        when 1
+          match_type.player1_type.selected_option.to_s
+        when 2
+          match_type.player2_type.selected_option.to_s
+        else
+          raise InvalidValueError
+        end
+    end
   end
 end

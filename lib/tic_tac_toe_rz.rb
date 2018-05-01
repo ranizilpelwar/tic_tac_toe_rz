@@ -26,5 +26,5 @@ require_relative "./tic_tac_toe_rz/TicTacToeRuby.Core/Validators/player_selectio
 require_relative "./tic_tac_toe_rz/TicTacToeRuby.Core/Validators/player_symbol_validator.rb"
 require_relative "./tic_tac_toe_rz/TicTacToeRuby.Core/Validators/tie_game_validator.rb"
 
-class TicTacToeRZ
+module TicTacToeRZ
 end

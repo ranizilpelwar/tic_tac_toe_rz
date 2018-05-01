@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'tic_tac_toe_rz'
-  s.version     = '0.0.11'
+  s.version     = '0.0.13'
   s.date        = '2018-04-25'
   s.summary     = "Tic Tac Toe API"
   s.description = "Tic Tac Toe API written in Ruby"
@@ -38,7 +38,18 @@ Gem::Specification.new do |s|
     "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/input_validator.rb",
     "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/player_selection_validator.rb",
     "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/player_symbol_validator.rb",
-    "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/tie_game_validator.rb"]
+    "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/tie_game_validator.rb",
+	  "features/board.feature",
+		"features/computer_actions.feature",
+		"features/game_over.feature",
+		"features/language_options.feature",
+		"features/match.feature",
+		"features/step_definitions/board_steps.rb",
+		"features/step_definitions/computer_actions_steps.rb",
+		"features/step_definitions/game_over_steps.rb",
+		"features/step_definitions/language_options_steps.rb",
+		"features/step_definitions/match_steps.rb",
+		"features/step_definitions/players_steps.rb"]
   s.homepage    =
     'http://rubygems.org'
   s.license       = 'MIT'
