@@ -30,11 +30,14 @@ module TicTacToeRZ
 
     def valid?(tag)
       file_path = @directory + "language_options." + tag + ".yaml"
+      file_path = File.dirname(__FILE__) + '/' + file_path
       File.exist?(file_path)
     end
 
     def default_language_tag!(tag)
-      raise InvalidValueError, "tag" if !valid?(tag)
+      dir = Dir.pwd
+      location = File.dirname(__FILE__)
+      raise InvalidValueError, "tag = #{tag}, directory = #{@directory}, working dir = #{dir}, location = #{location}" if !valid?(tag)
       YAMLWriter.write_data(@directory + GLOBAL_SETTINGS_FILE, "selected_language_tag", tag)
       @language.tag = tag
     end
