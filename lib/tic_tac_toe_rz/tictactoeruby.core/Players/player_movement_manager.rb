@@ -49,5 +49,10 @@ module TicTacToeRZ
         raise InvalidValueError, "game_board"
       end
     end
+
+    def moves_recordable?(match_number)
+      match_manager = MatchTypeManager.new
+      match_manager.player_type(match_number, 1) == "Human" || match_manager.player_type(match_number, 2) == "Human"
+    end
   end
 end

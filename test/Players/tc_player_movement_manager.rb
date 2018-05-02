@@ -4,6 +4,7 @@ require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Players/player_type.rb'
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Players/player_movement_manager.rb'
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/match_type.rb'
+require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/match_type_manager.rb'
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
 
 class TestPlayerMovementManager < Test::Unit::TestCase
@@ -70,6 +71,22 @@ class TestPlayerMovementManager < Test::Unit::TestCase
     move = TicTacToeRZ::PlayerMovementManager::LARGEST_INDEX
     @player_movement_manager.update_last_move_for_player(player_number, move)
     assert_equal(move, @player_movement_manager.get_last_move_for_player(player_number))
+  end
+
+  def test_moves_recordable_returns_true_for_match_type_human_vs_human
+    match_type = TicTacToeRZ::MatchTypeManager.new.matches[0]
+    player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
+    assert_true(player_movement_manager.moves_recordable?(1))
+  end
+
+  def test_moves_recordable_returns_true_for_match_type_human_vs_computer
+    assert_true(@player_movement_manager.moves_recordable?(2))
+  end
+
+  def test_moves_recordable_returns_false_for_match_type_computer_vs_computer
+    match_type = TicTacToeRZ::MatchTypeManager.new.matches[0]
+    player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
+    assert_false(player_movement_manager.moves_recordable?(3))
   end
 end
 
