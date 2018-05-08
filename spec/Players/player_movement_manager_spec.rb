@@ -72,4 +72,12 @@ RSpec.describe "a player movement manager" do
       expect(@player_movement_manager.get_last_move_for_player(player_number)).to eq(move)
     end
   end
+
+  context "method called can_undo_moves?" do
+    it "raises a GameRuleViolationError when undo_last_move is called when there are no moves to undo" do
+      game_board = double()
+      player_manager = double()
+      expect{@player_movement_manager.undo_last_move(game_board, player_manager)}.to raise_error(TicTacToeRZ::GameRuleViolationError)
+    end
+  end
 end

@@ -169,6 +169,10 @@ module TicTacToeRZ
       message = get_data("application_text", "title_of_language_options_screen")
     end
     
+    def self.no_moves_to_undo_error
+      message = get_data("application_text", "no_moves_to_undo_error")
+    end
+
     def self.argument_error(method_name, argument_name, reason)
       message = get_data("application_text", "argument_error")
       message = message.gsub("[1]", method_name)

@@ -1,6 +1,7 @@
 require_relative '../../TicTacToeRuby.Core/Languages/message_generator.rb'
 require_relative '../../TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
 require_relative '../../TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
+require_relative '../../TicTacToeRuby.Core/Exceptions/game_rule_violation_error.rb'
 
 module TicTacToeRZ
   class PlayerMovementManager
@@ -41,6 +42,7 @@ module TicTacToeRZ
 
     def undo_last_move(game_board, player_manager)
       raise NilReferenceError, "game_board" if game_board.nil?
+      raise GameRuleViolationError, MessageGenerator.no_moves_to_undo_error if !can_undo_moves?
       first_player_type = @match_type.player1_type.selected_option
       second_player_type = @match_type.player2_type.selected_option
       if (first_player_type == :Human && second_player_type == :Computer) || (first_player_type == :Computer && second_player_type == :Human)
@@ -64,6 +66,10 @@ module TicTacToeRZ
     def moves_recordable?(match_number)
       match_manager = MatchTypeManager.new
       match_manager.player_type(match_number, 1) == "Human" || match_manager.player_type(match_number, 2) == "Human"
+    end
+
+    def can_undo_moves?
+      get_last_move_for_player(1) != -1 && get_last_move_for_player(2) != -1
     end
   end
 end
