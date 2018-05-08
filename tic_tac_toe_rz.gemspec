@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'tic_tac_toe_rz'
-  s.version     = '0.0.17'
+  s.version     = '0.0.18'
   s.date        = '2018-04-25'
   s.summary     = "Tic Tac Toe API"
   s.description = "Tic Tac Toe API written in Ruby"
@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
     "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb",
     "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/nil_reference_error.rb",
     "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/player_type_error.rb",
+    "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/game_rule_violation_error.rb",
     "lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/computer_actions.rb",
     "lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/game_board.rb",
     "lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/match_type_manager.rb",
