@@ -13,7 +13,7 @@ module TicTacToeRZ
     attr_reader :language, :directory
 
     def initialize(directory_path)
-      @directory = directory_path
+      @directory = directory_path || "../config"
       tag = stored_default_tag
       tag = DEFAULT_LANGUAGE_TAG if !valid?(tag)
       @language = Language.new(tag)
