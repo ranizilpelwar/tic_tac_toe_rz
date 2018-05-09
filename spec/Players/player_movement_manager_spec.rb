@@ -73,7 +73,7 @@ RSpec.describe "a player movement manager" do
     end
   end
 
-  context "method called can_undo_moves?" do
+  context "method called any_moves_to_undo?" do
     it "raises a GameRuleViolationError when undo_last_move is called when there are no moves to undo" do
       game_board = double()
       player_manager = double()

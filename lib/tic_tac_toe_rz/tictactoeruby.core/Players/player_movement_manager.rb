@@ -44,7 +44,7 @@ module TicTacToeRZ
       raise NilReferenceError, "game_board" if game_board.nil?
       first_player_type = @match_type.player1_type.selected_option
       second_player_type = @match_type.player2_type.selected_option
-      raise GameRuleViolationError, MessageGenerator.no_moves_to_undo_error if !can_undo_moves? || (first_player_type != :Human && second_player_type != :Human)
+      raise GameRuleViolationError, MessageGenerator.no_moves_to_undo_error if !any_moves_to_undo? || (first_player_type != :Human && second_player_type != :Human)
       if (first_player_type == :Human && second_player_type == :Computer) || (first_player_type == :Computer && second_player_type == :Human)
         game_board.revert_board(get_last_move_for_player(1))
         game_board.revert_board(get_last_move_for_player(2))
@@ -68,7 +68,7 @@ module TicTacToeRZ
       match_manager.player_type(match_number, 1) == "Human" || match_manager.player_type(match_number, 2) == "Human"
     end
 
-    def can_undo_moves?
+    def any_moves_to_undo?
       get_last_move_for_player(1) != -1 && get_last_move_for_player(2) != -1
     end
   end
