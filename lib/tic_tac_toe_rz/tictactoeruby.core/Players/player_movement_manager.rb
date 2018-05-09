@@ -71,5 +71,14 @@ module TicTacToeRZ
     def any_moves_to_undo?
       get_last_move_for_player(1) != -1 && get_last_move_for_player(2) != -1
     end
+
+    def number_of_human_players
+      first_player_type = @match_type.player1_type.selected_option
+      second_player_type = @match_type.player2_type.selected_option
+      count = 0
+      count = count + 1 if first_player_type == :Human
+      count = count + 1 if second_player_type == :Human
+      count
+    end
   end
 end

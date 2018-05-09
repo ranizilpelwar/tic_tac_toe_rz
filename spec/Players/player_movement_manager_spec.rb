@@ -1,6 +1,7 @@
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Players/player_type.rb'
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Players/player_movement_manager.rb'
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/match_type.rb'
+require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/match_type_manager.rb'
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
 
@@ -78,6 +79,32 @@ RSpec.describe "a player movement manager" do
       game_board = double()
       player_manager = double()
       expect{@player_movement_manager.undo_last_move(game_board, player_manager)}.to raise_error(TicTacToeRZ::GameRuleViolationError)
+    end
+  end
+
+  context "method called number_of_human_players" do
+    it "returns 2 for a Human vs Human match type" do
+      match_manager = TicTacToeRZ::MatchTypeManager.new
+      match_type = match_manager.get_match_type(1)
+      player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
+      count = player_movement_manager.number_of_human_players
+      expect(count).to eq(2)
+    end
+
+    it "returns 1 for a Human vs Computer match type" do
+      match_manager = TicTacToeRZ::MatchTypeManager.new
+      match_type = match_manager.get_match_type(2)
+      player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
+      count = player_movement_manager.number_of_human_players
+      expect(count).to eq(1)
+    end
+
+    it "returns 0 for a Computer vs Computer match type" do
+      match_manager = TicTacToeRZ::MatchTypeManager.new
+      match_type = match_manager.get_match_type(3)
+      player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
+      count = player_movement_manager.number_of_human_players
+      expect(count).to eq(0)
     end
   end
 end
