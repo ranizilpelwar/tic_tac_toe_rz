@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'tic_tac_toe_rz'
-  s.version     = '0.0.19'
+  s.version     = '0.0.20'
   s.date        = '2018-04-25'
   s.summary     = "Tic Tac Toe API"
   s.description = "Tic Tac Toe API written in Ruby"
@@ -50,7 +50,55 @@ Gem::Specification.new do |s|
 		"features/step_definitions/game_over_steps.rb",
 		"features/step_definitions/language_options_steps.rb",
 		"features/step_definitions/match_steps.rb",
-		"features/step_definitions/players_steps.rb"]
+		"features/step_definitions/players_steps.rb",
+	  "features/test_files/bad_global_settings/global_settings.yaml",
+	  "features/test_files/bad_global_settings/language_options.en.yaml",
+	  "features/test_files/default_language_english/global_settings.yaml",
+	  "features/test_files/default_language_english/language_options.en.yaml",
+	  "features/test_files/default_language_english/language_options.es.yaml",
+	  "features/test_files/default_language_spanish/global_settings.yaml",
+	  "features/test_files/default_language_spanish/language_options.en.yaml",
+	  "features/test_files/default_language_spanish/language_options.es.yaml",
+	  "spec/Evaluators/board_score_evaluator_spec.rb",
+	  "spec/GamePlay/board_spec.rb",
+	  "spec/GamePlay/computer_actions_spec.rb",
+	  "spec/GamePlay/doubles.rb",
+	  "spec/GamePlay/game_board_spec.rb",
+	  "spec/GamePlay/game_spec.rb",
+	  "spec/GamePlay/match_spec.rb",
+	  "spec/GamePlay/match_type_manager_spec.rb",
+	  "spec/Languages/language_options_adapter_spec.rb",
+	  "spec/Languages/yaml_reader_spec.rb",
+	  "spec/Languages/yaml_writer_spec.rb",
+	  "spec/Players/player_manager_spec.rb",
+	  "spec/Players/player_movement_manager_spec.rb",
+	  "spec/Players/player_spec.rb",
+	  "spec/Players/player_type_spec.rb",
+	  "spec/TestFiles/testing.en.yaml",
+	  "spec/Validators/available_spaces_validator_spec.rb",
+	  "spec/Validators/game_over_validator_spec.rb",
+	  "spec/Validators/game_play_validator_spec.rb",
+	  "spec/Validators/player_selection_validator_spec.rb",
+	  "spec/Validators/player_symbol_validator_spec.rb",
+	  "spec/Validators/tie_game_validator_spec.rb",
+	  "test/Evaluators/tc_board_score_evaluation.rb",
+	  "test/Evaluators/tc_board_score_evaluation_parameterized_tests.rb",
+	  "test/GamePlay/tc_computer_actions.rb",
+	  "test/GamePlay/tc_game_board.rb",
+	  "test/GamePlay/tc_match_type.rb",
+	  "test/GamePlay/tc_match_type_manager.rb",
+		"test/Players/mock_player_manager.rb",
+		"test/Players/tc_player.rb",
+  	"test/Players/tc_player_manager.rb",
+		"test/Players/tc_player_manager_initialization.rb",
+		"test/Players/tc_player_movement_manager.rb",
+		"test/Players/tc_player_type.rb",
+		"test/Validators/tc_available_spaces_validation.rb",
+		"test/Validators/tc_game_over_validation.rb",
+		"test/Validators/tc_game_play_validation.rb",
+		"test/Validators/tc_player_selection_validation.rb",
+		"test/Validators/tc_player_symbol_validation.rb",
+		"test/Validators/tc_tie_game_validation.rb"]
   s.homepage    =
     'http://rubygems.org'
   s.license       = 'MIT'
