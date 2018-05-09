@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'tic_tac_toe_rz'
-  s.version     = '0.0.20'
+  s.version     = '0.0.22'
   s.date        = '2018-04-25'
   s.summary     = "Tic Tac Toe API"
   s.description = "Tic Tac Toe API written in Ruby"
