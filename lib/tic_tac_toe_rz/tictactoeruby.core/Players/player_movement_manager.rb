@@ -59,8 +59,6 @@ module TicTacToeRZ
         else
           @player2_last_move = no_last_move
         end
-      else
-        raise InvalidValueError, "game_board"
       end
     end
 
