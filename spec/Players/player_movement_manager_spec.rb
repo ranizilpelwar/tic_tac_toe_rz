@@ -4,6 +4,8 @@ require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/match_typ
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/match_type_manager.rb'
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
 require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/game_rule_violation_error.rb'
+require_relative '../../test/Players/mock_player_manager.rb'
 
 RSpec.describe "a player movement manager" do
   before(:example) do
@@ -105,6 +107,105 @@ RSpec.describe "a player movement manager" do
       player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
       count = player_movement_manager.number_of_human_players
       expect(count).to eq(0)
+    end
+  end
+
+  context "method called undo_last_move" do
+    it "raises a NilReferenceError when game_board is nil" do
+      match_manager = TicTacToeRZ::MatchTypeManager.new
+      match_type = match_manager.get_match_type(3)
+      player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
+      expect{ player_movement_manager.undo_last_move(nil, double()) }.to raise_error(TicTacToeRZ::NilReferenceError)
+    end
+
+    it "raises a NilReferenceError when player_manager is nil" do
+      match_manager = TicTacToeRZ::MatchTypeManager.new
+      match_type = match_manager.get_match_type(3)
+      player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
+      expect{ player_movement_manager.undo_last_move(double(), nil) }.to raise_error(TicTacToeRZ::NilReferenceError)
+    end
+
+    it "resets the last move for both players in a Human vs Computer match" do
+      match_manager = TicTacToeRZ::MatchTypeManager.new
+      match_type = match_manager.get_match_type(2)
+      game_board = TicTacToeRZ::GameBoard.new(["X", "2", "3", "O", "5", "6", "7", "8", "9"])
+      player_manager = MockPlayerManager.new
+      player_manager.update_current_player
+      player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
+      player_movement_manager.update_last_move_for_player(1, 3)
+      player_movement_manager.update_last_move_for_player(2, 0)
+      player_movement_manager.undo_last_move(game_board, player_manager)
+      expect(player_movement_manager.get_last_move_for_player(1)).to eq(-1)
+      expect(player_movement_manager.get_last_move_for_player(2)).to eq(-1)
+    end
+
+    it "resets the last move for only the current player in a Human vs Human match" do
+      match_manager = TicTacToeRZ::MatchTypeManager.new
+      match_type = match_manager.get_match_type(1)
+      game_board = TicTacToeRZ::GameBoard.new(["X", "2", "3", "O", "5", "6", "7", "8", "9"])
+      human = TicTacToeRZ::PlayerType.new(:Human)
+      player_manager = TicTacToeRZ::PlayerManager.new(TicTacToeRZ::Player.new(human, "X"), TicTacToeRZ::Player.new(human, "O"))
+      player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
+      player_movement_manager.update_last_move_for_player(1, 0)
+      player_movement_manager.update_last_move_for_player(2, 3)
+      player_movement_manager.undo_last_move(game_board, player_manager)
+      expect(player_movement_manager.get_last_move_for_player(1)).to eq(-1)
+      expect(player_movement_manager.get_last_move_for_player(2)).to eq(3)
+    end
+
+    it "raises a GameRuleViolationError in a Computer vs Computer match" do
+      match_manager = TicTacToeRZ::MatchTypeManager.new
+      match_type = match_manager.get_match_type(3)
+      game_board = TicTacToeRZ::GameBoard.new(["X", "2", "3", "O", "5", "6", "7", "8", "9"])
+      computer = TicTacToeRZ::PlayerType.new(:Computer)
+      player_manager = TicTacToeRZ::PlayerManager.new(TicTacToeRZ::Player.new(computer, "X"), TicTacToeRZ::Player.new(computer, "O"))
+      player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
+      player_movement_manager.update_last_move_for_player(1, 0)
+      player_movement_manager.update_last_move_for_player(2, 3)
+      expect{ player_movement_manager.undo_last_move(game_board, player_manager) }.to raise_error(TicTacToeRZ::GameRuleViolationError)
+    end
+
+    it "reverts only the two tiles corresponding to the last moves for both players in a Human vs Computer match" do
+      match_manager = TicTacToeRZ::MatchTypeManager.new
+      match_type = match_manager.get_match_type(2)
+      game_board = TicTacToeRZ::GameBoard.new(["X", "X", "O", "O", "5", "X", "O", "8", "9"])
+      player_manager = MockPlayerManager.new
+      player_manager.update_current_player
+      player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
+      player_movement_manager.update_last_move_for_player(1, 3)
+      player_movement_manager.update_last_move_for_player(2, 0)
+      player_movement_manager.undo_last_move(game_board, player_manager)
+      expected_board = ["1", "X", "O", "4", "5", "X", "O", "8", "9"]
+      expect(game_board.board).to eq(expected_board)
+    end
+
+    it "reverts only the one tile for the first Human player in a Human vs Human match when she is the current player" do
+      match_manager = TicTacToeRZ::MatchTypeManager.new
+      match_type = match_manager.get_match_type(1)
+      game_board = TicTacToeRZ::GameBoard.new(["X", "X", "O", "O", "5", "X", "O", "8", "9"])
+      human = TicTacToeRZ::PlayerType.new(:Human)
+      player_manager = TicTacToeRZ::PlayerManager.new(TicTacToeRZ::Player.new(human, "X"), TicTacToeRZ::Player.new(human, "O"))
+      player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
+      player_movement_manager.update_last_move_for_player(1, 0)
+      player_movement_manager.update_last_move_for_player(2, 3)
+      player_movement_manager.undo_last_move(game_board, player_manager)
+      expected_board = ["1", "X", "O", "O", "5", "X", "O", "8", "9"]
+      expect(game_board.board).to eq(expected_board)
+    end
+
+    it "reverts only the one tile for the second Human player in a Human vs Human match when she is the current player" do
+      match_manager = TicTacToeRZ::MatchTypeManager.new
+      match_type = match_manager.get_match_type(1)
+      game_board = TicTacToeRZ::GameBoard.new(["X", "X", "O", "O", "5", "X", "O", "8", "9"])
+      human = TicTacToeRZ::PlayerType.new(:Human)
+      player_manager = TicTacToeRZ::PlayerManager.new(TicTacToeRZ::Player.new(human, "X"), TicTacToeRZ::Player.new(human, "O"))
+      player_manager.update_current_player
+      player_movement_manager = TicTacToeRZ::PlayerMovementManager.new(match_type)
+      player_movement_manager.update_last_move_for_player(1, 0)
+      player_movement_manager.update_last_move_for_player(2, 3)
+      player_movement_manager.undo_last_move(game_board, player_manager)
+      expected_board = ["X", "X", "O", "4", "5", "X", "O", "8", "9"]
+      expect(game_board.board).to eq(expected_board)
     end
   end
 end
