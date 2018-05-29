@@ -175,9 +175,9 @@ module TicTacToeRZ
 
     def self.argument_error(method_name, argument_name, reason)
       message = get_data("application_text", "argument_error")
-      message = message.gsub("[1]", method_name) if parameter_provided?(winning_symbol)
-      message = message.gsub("[2]", argument_name) if parameter_provided?(winning_symbol)
-      message = message.gsub("[3]", reason) if parameter_provided?(winning_symbol)
+      message = message.gsub("[1]", method_name) if parameter_provided?(method_name)
+      message = message.gsub("[2]", argument_name) if parameter_provided?(argument_name)
+      message = message.gsub("[3]", reason) if parameter_provided?(reason)
     end
 
     def self.uniqueness_error
@@ -190,7 +190,7 @@ module TicTacToeRZ
 
     def self.invalid_selection_error_for(property)
       message = get_data("application_text", "invalid_selection_error_for")
-      message = message.gsub("[1]", property) if parameter_provided?(winning_symbol)
+      message = message.gsub("[1]", property) if parameter_provided?(property)
     end
 
     def self.line_spacer
