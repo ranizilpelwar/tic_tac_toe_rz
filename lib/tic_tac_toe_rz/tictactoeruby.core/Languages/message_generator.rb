@@ -65,6 +65,7 @@ module TicTacToeRZ
     def self.player_symbol_prompt(player_number)
       message = get_data("application_text", "player_symbol_prompt")
       message = message.gsub("[1]", player_number.to_s) if parameter_provided?(player_number)
+      message
     end
 
     def self.player_symbol_option
@@ -94,6 +95,7 @@ module TicTacToeRZ
     def self.player_won(winning_symbol)
       message = get_data("application_text", "player_won")
       message = message.gsub("[1]", winning_symbol) if parameter_provided?(winning_symbol)
+      message
     end
 
     def self.players_intro(player1_symbol, player1_type, player2_symbol, player2_type)
@@ -102,6 +104,7 @@ module TicTacToeRZ
       message = message.gsub("[2]", player1_type.to_s) if parameter_provided?(player1_type)
       message = message.gsub("[3]", player2_symbol.to_s) if parameter_provided?(player2_symbol)
       message = message.gsub("[4]", player2_type.to_s) if parameter_provided?(player2_type)
+      message
     end
 
     def self.board_intro
@@ -119,6 +122,7 @@ module TicTacToeRZ
     def self.thinking_process_for_computers_turn(player_symbol)
       message = get_data("application_text", "thinking_process_for_computers_turn")
       message = message.gsub("[1]", player_symbol.to_s) if parameter_provided?(player_symbol)
+      message
     end
 
     def self.thinking_process_incrementor
@@ -128,12 +132,14 @@ module TicTacToeRZ
     def self.next_move_prompt(player_symbol)
       message = get_data("application_text", "next_move_prompt")
       message = message.gsub("[1]", player_symbol.to_s) if parameter_provided?(player_symbol)
+      message
     end
 
     def self.board_square_selection(player_symbol, board_square)
       message = get_data("application_text", "board_square_selection")
       message = message.gsub("[1]", player_symbol.to_s) if parameter_provided?(player_symbol)
       message = message.gsub("[2]", board_square.to_s) if parameter_provided?(board_square)
+      message
     end
 
     def self.match_selection_prompt
@@ -144,17 +150,20 @@ module TicTacToeRZ
       message = get_data("application_text", "match_option_description")
       message = message.gsub("[1]", player1_type.to_s) if parameter_provided?(player1_type)
       message = message.gsub("[2]", player2_type.to_s) if parameter_provided?(player2_type)
+      message
     end
 
     def self.first_player_of_game_prompt(player_symbol_one, player_symbol_two)
       message = get_data("application_text", "first_player_of_game_prompt")
       message = message.gsub("[1]", player_symbol_one.to_s) if parameter_provided?(player_symbol_one)
       message = message.gsub("[2]", player_symbol_two.to_s) if parameter_provided?(player_symbol_two)
+      message
     end
 
     def self.option_number(number)
       message = get_data("application_text", "option_number")
       message = message.gsub("[1]", number.to_s) if parameter_provided?(number)
+      message
     end
 
     def self.title_of_player_setup_screen
@@ -178,6 +187,7 @@ module TicTacToeRZ
       message = message.gsub("[1]", method_name) if parameter_provided?(method_name)
       message = message.gsub("[2]", argument_name) if parameter_provided?(argument_name)
       message = message.gsub("[3]", reason) if parameter_provided?(reason)
+      message
     end
 
     def self.uniqueness_error
@@ -191,6 +201,7 @@ module TicTacToeRZ
     def self.invalid_selection_error_for(property)
       message = get_data("application_text", "invalid_selection_error_for")
       message = message.gsub("[1]", property) if parameter_provided?(property)
+      message
     end
 
     def self.line_spacer
