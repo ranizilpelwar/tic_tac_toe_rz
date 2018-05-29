@@ -64,7 +64,7 @@ module TicTacToeRZ
 
     def self.player_symbol_prompt(player_number)
       message = get_data("application_text", "player_symbol_prompt")
-      message = message.gsub("[1]", player_number.to_s) if parameter_provided?(winning_symbol)
+      message = message.gsub("[1]", player_number.to_s) if parameter_provided?(player_number)
     end
 
     def self.player_symbol_option
