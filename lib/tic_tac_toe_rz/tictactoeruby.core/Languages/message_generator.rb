@@ -9,7 +9,7 @@ module TicTacToeRZ
     attr_reader :language_config
 
     def self.directory
-      directory = "../config/"
+      directory = "./config/"
     end
 
     def self.get_language_config
