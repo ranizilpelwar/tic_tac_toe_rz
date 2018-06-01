@@ -1,17 +1,17 @@
 Gem::Specification.new do |s|
   s.name        = 'tic_tac_toe_rz'
-  s.version     = '1.0.05'
+  s.version     = '1.0.06'
   s.date        = '2018-04-25'
   s.summary     = "Tic Tac Toe API"
   s.description = "Tic Tac Toe API written in Ruby"
   s.authors     = ["Rani Zilpelwar"]
   s.email       = 'rani@8thlight.com'
   s.files       = ["lib/tic_tac_toe_rz.rb", 
-    "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Config/application_text.en.yaml", 
-    "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Config/application_text.es.yaml", 
-    "lib/tic_tac_toe_rz/tictactoeruby.core/config/global_settings.yaml",
-    "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Config/language_options.en.yaml", 
-    "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Config/language_options.es.yaml",
+    "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Languages/Config/application_text.en.yaml", 
+    "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Languages/Config/application_text.es.yaml", 
+    "lib/tic_tac_toe_rz/tictactoeruby.core/Languages/config/global_settings.yaml",
+    "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Languages/Config/language_options.en.yaml", 
+    "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Languages/Config/language_options.es.yaml",
     "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Evaluators/board_score_evaluator.rb",
     "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Evaluators/player_symbol_evaluator.rb",
     "lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb",
