@@ -212,6 +212,14 @@ module TicTacToeRZ
       message = get_data("application_text", "language_defaults_error")
     end
 
+    def self.configure_language
+      message = get_data("application_text", "configure_language")
+    end
+
+    def self.start_game
+      message = get_data("application_text", "start_game")
+    end
+
     def self.parameter_provided?(parameter)
       result = parameter != "" && !(parameter.nil?)
     end
