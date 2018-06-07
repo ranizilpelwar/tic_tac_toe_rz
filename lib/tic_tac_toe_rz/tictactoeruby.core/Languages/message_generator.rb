@@ -220,6 +220,14 @@ module TicTacToeRZ
       message = get_data("application_text", "start_game")
     end
 
+    def self.human
+      message = get_data("application_text", "human")
+    end
+
+    def self.computer
+      message = get_data("application_text", "computer")
+    end
+
     def self.parameter_provided?(parameter)
       result = parameter != "" && !(parameter.nil?)
     end
