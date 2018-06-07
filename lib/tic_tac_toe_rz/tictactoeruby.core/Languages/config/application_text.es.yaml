@@ -32,5 +32,5 @@ invalid_selection_error_for: "Oops! No podría usar eso para configurar de [1]. 
 language_defaults_error: "ERROR: no se puede usar el idioma almacenado en la configuración global. Configurarlo manualmente."
 no_moves_to_undo_error: "No hay movimientos para deshacer."
 line_spacer: "\n"
-configure_language: "Configurar Idioma"
-start_game: "Empezar Juego"
+configure_language: "Configura El Idioma"
+start_game: "Comienza El Juego"
