@@ -228,6 +228,22 @@ module TicTacToeRZ
       message = get_data("application_text", "computer")
     end
 
+    def self.player
+      message = get_data("application_text", "player")
+    end
+
+    def self.go
+      message = get_data("application_text", "go")
+    end
+
+    def self.start_new_game
+      message = get_data("application_text", "start_new_game")
+    end
+
+    def self.replay_game_prompt
+      message = get_data("application_text", "replay_game_prompt")
+    end
+
     def self.parameter_provided?(parameter)
       result = parameter != "" && !(parameter.nil?)
     end
