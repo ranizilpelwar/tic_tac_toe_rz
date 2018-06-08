@@ -53,7 +53,7 @@ module TicTacToeRZ
     end
 
     def type(player_number)
-      player(player_number).type.selected_option.to_s
+      player(player_number).type
     end
   end
 end
