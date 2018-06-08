@@ -244,6 +244,10 @@ module TicTacToeRZ
       message = get_data("application_text", "replay_game_prompt")
     end
 
+    def self.undo_move
+      message = get_data("application_text", "undo_move")
+    end
+
     def self.parameter_provided?(parameter)
       result = parameter != "" && !(parameter.nil?)
     end
