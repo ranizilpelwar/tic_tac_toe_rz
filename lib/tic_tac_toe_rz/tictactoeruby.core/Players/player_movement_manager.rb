@@ -46,32 +46,22 @@ module TicTacToeRZ
       first_player_type = @match_type.player1_type.selected_option
       second_player_type = @match_type.player2_type.selected_option
       raise GameRuleViolationError, MessageGenerator.no_moves_to_undo_error if !any_moves_to_undo? || number_of_human_players == 0
-      
-      player_number = player_manager.get_player_number(player_manager.get_next_player)
-      game_board.revert_board(get_last_move_for_player(player_number))
-      if player_number == 1
-        @player1_last_move = no_last_move
-      else
+      if number_of_human_players == 1
+        game_board.revert_board(get_last_move_for_player(2)) if get_last_move_for_player(2) != no_last_move
         @player2_last_move = no_last_move
+        if get_last_move_for_player(1) != no_last_move && player_manager.type(2) == "Computer"
+          game_board.revert_board(get_last_move_for_player(1))
+          @player1_last_move = no_last_move
+        end
+      elsif number_of_human_players == 2
+        player_number = player_manager.get_player_number(player_manager.get_next_player)
+        game_board.revert_board(get_last_move_for_player(player_number))
+        if player_number == 1
+          @player1_last_move = no_last_move
+        else
+          @player2_last_move = no_last_move
+        end
       end
-
-
-      # if number_of_human_players == 1
-      #   game_board.revert_board(get_last_move_for_player(2)) if get_last_move_for_player(2) != no_last_move
-      #   @player2_last_move = no_last_move
-      #   if get_last_move_for_player(1) != no_last_move && player_manager.type(2) == "Computer"
-      #     game_board.revert_board(get_last_move_for_player(1))
-      #     @player1_last_move = no_last_move
-      #   end
-      # elsif number_of_human_players == 2
-      #   player_number = player_manager.get_player_number(player_manager.get_next_player)
-      #   game_board.revert_board(get_last_move_for_player(player_number))
-      #   if player_number == 1
-      #     @player1_last_move = no_last_move
-      #   else
-      #     @player2_last_move = no_last_move
-      #   end
-      # end
     end
 
     def moves_recordable?(match_number)
