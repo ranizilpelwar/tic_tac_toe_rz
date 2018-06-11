@@ -52,7 +52,7 @@ module TicTacToeRZ
         @player1_last_move = no_last_move
         @player2_last_move = no_last_move
       elsif number_of_human_players == 2
-        player_number = player_manager.get_player_number(player_manager.get_next_player)
+        player_number = player_manager.get_player_number(player_manager.current_player)
         game_board.revert_board(get_last_move_for_player(player_number))
         if player_number == 1
           @player1_last_move = no_last_move
@@ -68,7 +68,7 @@ module TicTacToeRZ
     end
 
     def any_moves_to_undo?
-      get_last_move_for_player(1) != no_last_move || get_last_move_for_player(2) != no_last_move
+      get_last_move_for_player(1) != -1 && get_last_move_for_player(2) != -1
     end
 
     def number_of_human_players
