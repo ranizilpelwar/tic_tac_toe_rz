@@ -1,5 +1,5 @@
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/tie_game_validator.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/game_over_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/tie_game_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/game_over_validator.rb'
 
 When("all spaces are occupied with no tic tac toe configuration on the board") do
   @board = ["X", "X", "Y", "Y", "Y", "X", "X", "X", "Y"]

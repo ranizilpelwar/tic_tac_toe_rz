@@ -1,5 +1,5 @@
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Languages/language_options_adapter.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/languages/language_options_adapter.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid_value_error.rb'
 
 Given("default language is {string}") do |language|
   @directory_path_for_default_language = "../../../../features/test_files/"
