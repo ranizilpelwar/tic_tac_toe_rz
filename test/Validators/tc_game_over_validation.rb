@@ -1,10 +1,10 @@
 require 'test/unit'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/game_over_validator.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/game_board.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_reference_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid_value_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/game_over_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/game_board.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_reference_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid_value_error.rb'
 
 class TestGameOverValidation < Test::Unit::TestCase
   def test_game_over_raises_nil_reference_error_when_board_is_nil

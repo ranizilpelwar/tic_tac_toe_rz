@@ -1,8 +1,8 @@
 require 'test/unit'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/tie_game_validator.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/game_board.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_reference_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/tie_game_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/game_board.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_reference_error.rb'
 
 class TestTieGameValidation < Test::Unit::TestCase
   def test_tie_game_raises_error_when_provided_board_is_nil

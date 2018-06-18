@@ -1,7 +1,7 @@
 require 'test/unit'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/player_symbol_validator.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid_value_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/player_symbol_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid_value_error.rb'
 
 class TestPlayerSymbolValidation < Test::Unit::TestCase
   def test_an_empty_string_is_not_a_valid_player_symbol
