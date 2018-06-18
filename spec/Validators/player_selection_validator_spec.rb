@@ -1,6 +1,6 @@
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/player_selection_validator.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/player_selection_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_reference_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid_value_error.rb'
 
 RSpec.describe "a player selection validator" do
   shared_examples "match symbol entries" do |description, input, player_symbol_one, player_symbol_two, expected|
