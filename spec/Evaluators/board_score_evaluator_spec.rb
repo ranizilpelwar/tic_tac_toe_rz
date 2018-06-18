@@ -1,7 +1,7 @@
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Evaluators/board_score_evaluator.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/game_board.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/evaluators/board_score_evaluator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/game_board.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_reference_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid_value_error.rb'
 
 RSpec.describe "a board score evaluator" do
   context "method called score_of_board" do

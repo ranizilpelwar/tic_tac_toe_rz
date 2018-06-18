@@ -1,5 +1,5 @@
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/game_board.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/available_spaces_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/game_board.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/available_spaces_validator.rb'
 
 RSpec.describe "a Tic Tac Toe board" do
   before(:each) do
