@@ -5,7 +5,7 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/match_typ
 require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_reference_error.rb'
 require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid_value_error.rb'
 require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/game_rule_violation_error.rb'
-require_relative '../../test/Players/mock_player_manager.rb'
+require_relative '../../test/players/mock_player_manager.rb'
 
 RSpec.describe "a player movement manager" do
   before(:example) do

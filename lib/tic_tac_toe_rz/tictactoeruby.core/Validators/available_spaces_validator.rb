@@ -4,7 +4,6 @@ require_relative '../../tictactoeruby.core/exceptions/nil_reference_error.rb'
 module TicTacToeRZ
   module AvailableSpacesValidator
 
-    # Returns a list of indexes on the board where possible moves can be made.
     def self.get_available_spaces(board)
       raise NilReferenceError, "board" if board.nil?
       available_spaces = []
@@ -17,7 +16,6 @@ module TicTacToeRZ
       result = available_spaces
     end
 
-    # Note: A negative number is not a valid digit in this game.
     def self.digit?(input)
       pattern = /\A[0-9]+\z/
       match_data = pattern.match(input)
