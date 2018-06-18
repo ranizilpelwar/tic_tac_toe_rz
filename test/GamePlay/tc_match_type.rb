@@ -1,7 +1,7 @@
 require 'test/unit'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Players/player_type.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/player_type_error.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/match_type.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/players/player_type.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/player_type_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/match_type.rb'
 
 class TestMatchType < Test::Unit::TestCase
   

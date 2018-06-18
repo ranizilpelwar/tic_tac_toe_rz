@@ -1,9 +1,9 @@
 require 'test/unit'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/match_type_manager.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/match_type.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Players/player_type.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid_value_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/match_type_manager.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/match_type.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/players/player_type.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid_value_error.rb'
 
 class TestMatchTypeManager < Test::Unit::TestCase
   def test_initialize_creates_a_total_of_three_match_types
