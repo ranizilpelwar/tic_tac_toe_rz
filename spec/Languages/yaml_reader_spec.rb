@@ -1,7 +1,7 @@
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Languages/yaml_reader.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Languages/message_generator.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/languages/yaml_reader.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/languages/message_generator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_reference_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid_value_error.rb'
 
 RSpec.describe "a YAML Reader" do 
 
