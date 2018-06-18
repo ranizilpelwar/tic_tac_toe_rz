@@ -1,7 +1,7 @@
-require_relative '../../TicTacToeRuby.Core/Languages/yaml_reader.rb'
-require_relative '../../TicTacToeRuby.Core/Languages/yaml_writer.rb'
-require_relative '../../TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
-require_relative '../../TicTacToeRuby.Core/Languages/language.rb'
+require_relative '../../tictactoeruby.core/languages/yaml_reader.rb'
+require_relative '../../tictactoeruby.core/languages/yaml_writer.rb'
+require_relative '../../tictactoeruby.core/exceptions/invalid_value_error.rb'
+require_relative '../../tictactoeruby.core/languages/language.rb'
 
 module TicTacToeRZ
   class LanguageOptionsAdapter

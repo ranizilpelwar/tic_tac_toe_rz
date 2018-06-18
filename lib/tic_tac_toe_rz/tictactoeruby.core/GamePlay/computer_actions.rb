@@ -1,12 +1,12 @@
 require_relative 'game_board.rb'
 require_relative 'weighted_move.rb'
-require_relative '../Players/player_manager.rb'
-require_relative '../Validators/available_spaces_validator.rb'
-require_relative '../Validators/game_over_validator.rb'
-require_relative '../Validators/player_symbol_validator.rb'
-require_relative '../Evaluators/board_score_evaluator.rb'
-require_relative '../../TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
-require_relative '../../TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
+require_relative '../players/player_manager.rb'
+require_relative '../validators/available_spaces_validator.rb'
+require_relative '../validators/game_over_validator.rb'
+require_relative '../validators/player_symbol_validator.rb'
+require_relative '../evaluators/board_score_evaluator.rb'
+require_relative '../../tictactoeruby.core/exceptions/nil_reference_error.rb'
+require_relative '../../tictactoeruby.core/exceptions/invalid_value_error.rb'
 
 module TicTacToeRZ
   class ComputerActions

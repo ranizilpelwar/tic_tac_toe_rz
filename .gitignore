@@ -1,9 +1,9 @@
 .DS_Store
 lib/tic_tac_toe_rz/.DS_Store
 lib/tic_tac_toe_rz/tictactoeruby.core/.DS_Store
-lib/tic_tac_toe_rz/tictactoeruby.core/Evaluators/.DS_Store
-lib/tic_tac_toe_rz/tictactoeruby.core/Languages/.DS_Store
-lib/tic_tac_toe_rz/tictactoeruby.core/Players/.DS_Store
-lib/tic_tac_toe_rz/tictactoeruby.core/Validators/.DS_Store
+lib/tic_tac_toe_rz/tictactoeruby.core/evaluators/.DS_Store
+lib/tic_tac_toe_rz/tictactoeruby.core/languages/.DS_Store
+lib/tic_tac_toe_rz/tictactoeruby.core/players/.DS_Store
+lib/tic_tac_toe_rz/tictactoeruby.core/validators/.DS_Store
 lib/tic_tac_toe_rz/tictactoeruby.core/config/.DS_Store
 lib/.DS_Store
