@@ -7,13 +7,12 @@ module TicTacToeRZ
     def self.get_available_spaces(board)
       raise NilReferenceError, "board" if board.nil?
       available_spaces = []
-      board.each do |tile_on_board| 
-        if digit?(tile_on_board)
-          index = board.index(tile_on_board)
-          available_spaces.push(index)
-        end
+      board.select do |tile_on_board| 
+        digit?(tile_on_board)
+      end.each do |tile_on_board|
+        available_spaces.push(board.index(tile_on_board))
       end
-      result = available_spaces
+      available_spaces
     end
 
     def self.digit?(input)
