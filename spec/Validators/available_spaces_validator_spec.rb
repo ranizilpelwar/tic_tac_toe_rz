@@ -1,6 +1,6 @@
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/available_spaces_validator.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/game_board.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/available_spaces_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/game_board.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_reference_error.rb'
 
 RSpec.describe "an available spaces validator" do
   context "method called get_available_spaces" do

@@ -1,5 +1,5 @@
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/game_board.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/available_spaces_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/game_board.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/available_spaces_validator.rb'
 
 RSpec.describe "a Tic Tac Toe board" do
   before(:each) do
@@ -7,12 +7,12 @@ RSpec.describe "a Tic Tac Toe board" do
   end
 
   it "is a grid with nine squares" do
-    raise if grid.size != 9
+    expect(grid.size).to eq(9)
   end
 
-  it "has a number on each square" do
-    grid.each do |square|
-      raise if !digit?(square)
+  it "has a number on each square tile" do
+    grid.each do |tile|
+      expect(digit?(tile)).to be true
     end
   end
 
@@ -21,7 +21,7 @@ RSpec.describe "a Tic Tac Toe board" do
     symbol = "X"
     select_square(index, symbol)
     grid_value = grid[index]
-    raise "grid_value = #{grid_value} but expected it to be #{symbol}" if grid_value != symbol
+    expect(grid_value).to eq(symbol)
   end
 
   it "has the original number on a square when a player reverts it" do
@@ -31,7 +31,7 @@ RSpec.describe "a Tic Tac Toe board" do
     select_square(index, symbol)
     revert_square(index)
     grid_value = grid[index]
-    raise "grid_value = #{grid_value} but expected it to be #{original_value}" if grid_value != original_value
+    expect(grid_value).to eq(original_value)
   end
    
   def grid 

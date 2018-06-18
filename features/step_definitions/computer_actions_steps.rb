@@ -1,6 +1,6 @@
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/computer_actions.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/game_board.rb'
-require_relative '../../test/Players/mock_player_manager.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/computer_actions.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/game_board.rb'
+require_relative '../../test/players/mock_player_manager.rb'
 
 Given("a game is being played with a computer player") do
   @player_manager = MockPlayerManager.new

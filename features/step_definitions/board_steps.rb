@@ -1,6 +1,6 @@
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/game_board.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/game_play_validator.rb'
-require_relative '../../test/Players/mock_player_manager.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/game_board.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/game_play_validator.rb'
+require_relative '../../test/players/mock_player_manager.rb'
 
 	When("the board is displayed") do
 		@game_board = TicTacToeRZ::GameBoard.new(TicTacToeRZ::GameBoard.create_board)

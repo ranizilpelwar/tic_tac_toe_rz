@@ -1,9 +1,9 @@
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/match_type.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/match_type_manager.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/game_over_validator.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/tie_game_validator.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Validators/player_selection_validator.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Players/player_movement_manager.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/match_type.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/match_type_manager.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/game_over_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/tie_game_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/player_selection_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/players/player_movement_manager.rb'
 require_relative './doubles.rb'
 
 RSpec.configure do |config|

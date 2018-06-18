@@ -1,4 +1,4 @@
-require_relative '../../TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
+require_relative '../../tictactoeruby.core/exceptions/nil_reference_error.rb'
 
 module TicTacToeRZ
   class Language

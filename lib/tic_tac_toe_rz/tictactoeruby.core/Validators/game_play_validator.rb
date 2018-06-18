@@ -1,9 +1,9 @@
-require_relative '../GamePlay/game_board.rb'
-require_relative '../../TicTacToeRuby.Core/Validators/available_spaces_validator.rb'
-require_relative '../../TicTacToeRuby.Core/Validators/game_over_validator.rb'
-require_relative '../../TicTacToeRuby.Core/Validators/player_symbol_validator.rb'
-require_relative '../../TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
-require_relative '../../TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
+require_relative '../gameplay/game_board.rb'
+require_relative '../../tictactoeruby.core/validators/available_spaces_validator.rb'
+require_relative '../../tictactoeruby.core/validators/game_over_validator.rb'
+require_relative '../../tictactoeruby.core/validators/player_symbol_validator.rb'
+require_relative '../../tictactoeruby.core/exceptions/nil_reference_error.rb'
+require_relative '../../tictactoeruby.core/exceptions/invalid_value_error.rb'
 
 module TicTacToeRZ
   module GamePlayValidator

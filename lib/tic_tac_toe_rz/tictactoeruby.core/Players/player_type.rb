@@ -1,4 +1,4 @@
-require_relative '../Exceptions/invalid_value_error.rb'
+require_relative '../exceptions/invalid_value_error.rb'
 
 module TicTacToeRZ
   class PlayerType

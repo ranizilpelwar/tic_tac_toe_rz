@@ -1,6 +1,6 @@
-require_relative '../Validators/player_symbol_validator.rb'
-require_relative '../../TicTacToeRuby.Core/Exceptions/nil_reference_error.rb'
-require_relative '../../TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
+require_relative '../validators/player_symbol_validator.rb'
+require_relative '../../tictactoeruby.core/exceptions/nil_reference_error.rb'
+require_relative '../../tictactoeruby.core/exceptions/invalid_value_error.rb'
 
 module TicTacToeRZ
   class GameBoard

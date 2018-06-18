@@ -1,6 +1,6 @@
 require 'test/unit'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Evaluators/board_score_evaluator.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/GamePlay/game_board.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/evaluators/board_score_evaluator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/game_board.rb'
 
 class BoardScoreEvaluationParameterizedTests < Test::Unit::TestCase
   [

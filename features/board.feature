@@ -36,8 +36,3 @@ Feature: Provide a board on which to play
 		And square 1 on the board is occupied by a player with a symbol of "X"
 	  When player with symbol "Y" selects square 1
 	  Then the system indicates that the given square cannot be selected
-	Scenario: An occupied square on the board can be unselected by a player
-
-		
-
-

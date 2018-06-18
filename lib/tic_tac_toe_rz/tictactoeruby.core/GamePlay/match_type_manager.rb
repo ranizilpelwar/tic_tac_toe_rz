@@ -1,7 +1,7 @@
 require_relative 'match_type.rb'
-require_relative '../Players/player_type.rb'
-require_relative '../../TicTacToeRuby.Core/Languages/message_generator.rb'
-require_relative '../../TicTacToeRuby.Core/Exceptions/invalid_value_error.rb'
+require_relative '../players/player_type.rb'
+require_relative '../../tictactoeruby.core/languages/message_generator.rb'
+require_relative '../../tictactoeruby.core/exceptions/invalid_value_error.rb'
 
 module TicTacToeRZ
   class MatchTypeManager
