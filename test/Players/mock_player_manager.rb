@@ -1,5 +1,5 @@
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Players/player_manager.rb'
-require_relative '../../lib/tic_tac_toe_rz/TicTacToeRuby.Core/Players/player.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/players/player_manager.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/players/player.rb'
 
 class MockPlayerManager
   attr_reader :player_manager, :player1, :player2, :current_player
