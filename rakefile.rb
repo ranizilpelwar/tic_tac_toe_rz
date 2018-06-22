@@ -8,7 +8,7 @@ task :run_tests do
   ruby 'test/gameplay/tc_match_type_manager.rb'
   ruby 'test/gameplay/tc_game_board.rb'
   ruby 'test/gameplay/tc_computer_actions.rb'
-  ruby 'test/validators/tc_available_spaces_validation.rb'
+  ruby 'test/game_rules/tc_available_spaces_rules.rb'
   ruby 'test/validators/tc_game_over_validation.rb'
   ruby 'test/validators/tc_game_play_validation.rb'
   ruby 'test/validators/tc_player_selection_validation.rb'

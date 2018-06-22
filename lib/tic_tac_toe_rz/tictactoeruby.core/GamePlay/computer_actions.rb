@@ -1,7 +1,7 @@
 require_relative 'game_board.rb'
 require_relative 'weighted_move.rb'
 require_relative '../players/player_manager.rb'
-require_relative '../validators/available_spaces_validator.rb'
+require_relative '../game_rules/available_spaces_rules.rb'
 require_relative '../validators/game_over_validator.rb'
 require_relative '../validators/player_symbol_validator.rb'
 require_relative '../evaluators/board_score_evaluator.rb'
@@ -27,7 +27,7 @@ module TicTacToeRZ
     def get_best_move(board, player_symbol, depth, best_max_value, best_min_value)
       raise NilReferenceError, "board" if board.nil?
       raise InvalidValueError, "player_symbol" if !PlayerSymbolValidator.valid?(player_symbol)
-      next_moves = AvailableSpacesValidator.get_available_spaces(board)
+      next_moves = GameRules::AvailableSpacesRules.get_available_spaces(board)
       tile = ""
       current_score = 0
       best_move = -1

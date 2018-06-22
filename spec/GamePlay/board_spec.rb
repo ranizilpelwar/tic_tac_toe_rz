@@ -1,5 +1,5 @@
 require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/game_board.rb'
-require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/available_spaces_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/game_rules/available_spaces_rules.rb'
 
 RSpec.describe "a Tic Tac Toe board" do
   before(:each) do
@@ -39,7 +39,7 @@ RSpec.describe "a Tic Tac Toe board" do
   end
 
   def digit?(input)
-    TicTacToeRZ::AvailableSpacesValidator.digit?(input)
+    TicTacToeRZ::GameRules::AvailableSpacesRules.digit?(input)
   end
 
   def select_square(index, symbol)
