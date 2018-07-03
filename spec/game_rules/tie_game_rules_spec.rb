@@ -1,4 +1,4 @@
-require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/tie_game_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/game_rules/tie_game_rules.rb'
 require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/game_board.rb'
 require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_reference_error.rb'
 
@@ -6,13 +6,13 @@ RSpec.describe "a tie game validator" do
   
   shared_examples "tie_game?" do |description, board, expected|
     it "returns #{expected} when #{description}" do
-      expect(TicTacToeRZ::TieGameValidator.tie_game?(board)).to be expected
+      expect(TicTacToeRZ::GameRules::TieGameRules.tie_game?(board)).to be expected
     end
   end
   
   context "method called tie_game?" do
     it "raises a NilReferenceError when provided board is nil" do
-      expect{TicTacToeRZ::TieGameValidator.tie_game?(nil)}.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{TicTacToeRZ::GameRules::TieGameRules.tie_game?(nil)}.to raise_error(TicTacToeRZ::NilReferenceError)
     end
 
     include_examples "tie_game?", "there are no moves played", TicTacToeRZ::GameBoard.create_board, false

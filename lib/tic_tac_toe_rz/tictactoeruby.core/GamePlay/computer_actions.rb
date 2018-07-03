@@ -2,7 +2,7 @@ require_relative 'game_board.rb'
 require_relative 'weighted_move.rb'
 require_relative '../players/player_manager.rb'
 require_relative '../game_rules/available_spaces_rules.rb'
-require_relative '../validators/game_over_validator.rb'
+require_relative '../game_rules/game_over_rules.rb'
 require_relative '../validators/player_symbol_validator.rb'
 require_relative '../evaluators/board_score_evaluator.rb'
 require_relative '../../tictactoeruby.core/exceptions/nil_reference_error.rb'
@@ -39,7 +39,7 @@ module TicTacToeRZ
           opposing_symbol = current_player
       end
 
-      win_exists = GameOverValidator.win_for_player?(player_symbol, board) || GameOverValidator.win_for_player?(opposing_symbol, board)
+      win_exists = GameRules::GameOverRules.win_for_player?(player_symbol, board) || GameRules::GameOverRules.win_for_player?(opposing_symbol, board)
       
       if next_moves.size == 0 || depth == 0 || win_exists
         current_score = BoardScoreEvaluator.score_of_board(board, current_player, other_player) * (depth + 1)

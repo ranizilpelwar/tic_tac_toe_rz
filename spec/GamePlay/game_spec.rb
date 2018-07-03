@@ -1,7 +1,7 @@
 require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/match_type.rb'
 require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/match_type_manager.rb'
-require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/game_over_validator.rb'
-require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/tie_game_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/game_rules/game_over_rules.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/game_rules/tie_game_rules.rb'
 require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/player_selection_validator.rb'
 require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/players/player_movement_manager.rb'
 require_relative './doubles.rb'
@@ -38,26 +38,26 @@ RSpec.describe "a game" do
 
   it "can end in a win when a player has three squares in a row" do
     board = ["X", "X", "X", "4", "5", "6", "7", "8", "9"]
-    expect(TicTacToeRZ::GameOverValidator.game_over?(board)).to be true
+    expect(TicTacToeRZ::GameRules::GameOverRules.game_over?(board)).to be true
   end
 
   it "can end in a win when a player has three squares in a column" do
     board = ["X", "2", "3", "X", "5", "6", "X", "8", "9"]
-    expect(TicTacToeRZ::GameOverValidator.game_over?(board)).to be true
+    expect(TicTacToeRZ::GameRules::GameOverRules.game_over?(board)).to be true
   end
 
   it "can end in a win when a player has three squares diagonally" do
     board1 = ["X", "2", "3", "4", "X", "6", "7", "8", "X"]
-    win_left_diagonal = TicTacToeRZ::GameOverValidator.game_over?(board1)
+    win_left_diagonal = TicTacToeRZ::GameRules::GameOverRules.game_over?(board1)
     board2 = ["1", "2", "X", "4", "X", "6", "X", "8", "9"]
-    win_right_diagonal = TicTacToeRZ::GameOverValidator.game_over?(board2)
+    win_right_diagonal = TicTacToeRZ::GameRules::GameOverRules.game_over?(board2)
     expect(win_left_diagonal).to be true
     expect(win_right_diagonal).to be true
   end 
 
   it "can end in a tie when neither player gets three squares consecutively on a board" do
     board = ["X", "X", "Y", "Y", "Y", "X", "X", "X", "Y"]
-    expect(TicTacToeRZ::TieGameValidator.tie_game?(board)).to be true
+    expect(TicTacToeRZ::GameRules::TieGameRules.tie_game?(board)).to be true
   end
 
   it "can store a player's last move" do
