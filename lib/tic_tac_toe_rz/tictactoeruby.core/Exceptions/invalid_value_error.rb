@@ -1,4 +1,6 @@
 module TicTacToeRZ
-  class InvalidValueError < StandardError
+  module Exceptions
+    class InvalidValueError < StandardError
+    end
   end
 end

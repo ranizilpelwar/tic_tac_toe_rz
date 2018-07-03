@@ -8,7 +8,7 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid
 
 class TestGameOverValidation < Test::Unit::TestCase
   def test_game_over_raises_nil_reference_error_when_board_is_nil
-    assert_raises(TicTacToeRZ::NilReferenceError) do TicTacToeRZ::GameRules::GameOverRules.game_over?(nil) end 
+    assert_raises(TicTacToeRZ::Exceptions::NilReferenceError) do TicTacToeRZ::GameRules::GameOverRules.game_over?(nil) end 
   end
 
   def test_game_is_over_when_first_row_on_board_contains_matching_tiles
@@ -57,21 +57,21 @@ class TestGameOverValidation < Test::Unit::TestCase
   end
 
   def test_game_is_not_over_on_brand_new_unplayed_board
-    board = TicTacToeRZ::GameBoard.create_board
+    board = TicTacToeRZ::GamePlay::GameBoard.create_board
     assert(!TicTacToeRZ::GameRules::GameOverRules.game_over?(board), "Expected game over to be false.")
   end
 
   def test_win_for_player_raises_nil_reference_error_when_provided_board_is_nil
-    assert_raises(TicTacToeRZ::NilReferenceError) do TicTacToeRZ::GameRules::GameOverRules.win_for_player?("X", nil) end 
+    assert_raises(TicTacToeRZ::Exceptions::NilReferenceError) do TicTacToeRZ::GameRules::GameOverRules.win_for_player?("X", nil) end 
   end
 
   def test_win_for_player_raises_invalid_value_error_when_provided_player_symbol_is_invalid
-    board = TicTacToeRZ::GameBoard.create_board
-    assert_raises(TicTacToeRZ::InvalidValueError) do TicTacToeRZ::GameRules::GameOverRules.win_for_player?("1", board) end 
+    board = TicTacToeRZ::GamePlay::GameBoard.create_board
+    assert_raises(TicTacToeRZ::Exceptions::InvalidValueError) do TicTacToeRZ::GameRules::GameOverRules.win_for_player?("1", board) end 
   end
 
   def test_win_for_player_returns_false_on_brand_new_unplayed_board
-    board = TicTacToeRZ::GameBoard.create_board
+    board = TicTacToeRZ::GamePlay::GameBoard.create_board
     assert(!TicTacToeRZ::GameRules::GameOverRules.win_for_player?("X", board), "Expected false to be returned on unplayed board.")
   end
 

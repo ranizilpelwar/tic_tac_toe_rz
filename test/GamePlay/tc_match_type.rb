@@ -8,11 +8,11 @@ class TestMatchType < Test::Unit::TestCase
   def setup
     @player1_type = new_player_type(:Human)
     @player2_type = new_player_type(:Computer)
-    @match_type = TicTacToeRZ::MatchType.new(@player1_type, @player2_type)
+    @match_type = TicTacToeRZ::GamePlay::MatchType.new(@player1_type, @player2_type)
   end
 
   def new_player_type(type)
-    TicTacToeRZ::PlayerType.new(type)
+    TicTacToeRZ::Players::PlayerType.new(type)
   end
 
   def test_match_type_sets_player1_type_when_it_is_used_during_initialization

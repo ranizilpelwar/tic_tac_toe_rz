@@ -6,7 +6,7 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_ref
 
 class TestAvailableSpacesRules < Test::Unit::TestCase
   def test_get_available_spaces_raises_a_nil_reference_error_when_board_is_nil
-    assert_raises(TicTacToeRZ::NilReferenceError) do TicTacToeRZ::GameRules::AvailableSpacesRules.get_available_spaces(nil) end
+    assert_raises(TicTacToeRZ::Exceptions::NilReferenceError) do TicTacToeRZ::GameRules::AvailableSpacesRules.get_available_spaces(nil) end
   end
 
   def test_alpha_character_is_not_a_valid_digit
@@ -70,7 +70,7 @@ class TestAvailableSpacesRules < Test::Unit::TestCase
   end
 
   def test_get_available_spaces_contains_nine_elements_when_there_are_all_available_spots_on_the_board
-    board = TicTacToeRZ::GameBoard.create_board
+    board = TicTacToeRZ::GamePlay::GameBoard.create_board
     expected_result = 9
     available_spaces = TicTacToeRZ::GameRules::AvailableSpacesRules.get_available_spaces(board)
     actual_result = available_spaces.length

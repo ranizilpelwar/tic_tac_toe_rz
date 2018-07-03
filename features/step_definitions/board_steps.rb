@@ -3,7 +3,7 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/game_rules/game_pl
 require_relative '../../test/players/mock_player_manager.rb'
 
 	When("the board is displayed") do
-		@game_board = TicTacToeRZ::GameBoard.new(TicTacToeRZ::GameBoard.create_board)
+		@game_board = TicTacToeRZ::GamePlay::GameBoard.new(TicTacToeRZ::GamePlay::GameBoard.create_board)
 	end
 
 	Then("the board should have {int} total squares") do |int|

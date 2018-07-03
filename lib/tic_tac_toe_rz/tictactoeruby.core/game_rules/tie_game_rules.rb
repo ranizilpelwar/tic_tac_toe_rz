@@ -6,7 +6,7 @@ module TicTacToeRZ
   module GameRules
     module TieGameRules
       def self.tie_game?(board)
-        raise NilReferenceError, "board" if board.nil?
+        raise Exceptions::NilReferenceError, "board" if board.nil?
         available_spaces = AvailableSpacesRules.get_available_spaces(board)
         result = available_spaces.length == 0 && !GameOverRules.game_over?(board)
       end

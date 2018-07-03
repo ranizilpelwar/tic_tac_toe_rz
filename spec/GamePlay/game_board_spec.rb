@@ -5,8 +5,8 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid
 
 RSpec.describe "a game board" do  
   before(:example) do
-    @board = TicTacToeRZ::GameBoard.create_board
-    @game_board = TicTacToeRZ::GameBoard.new(@board)
+    @board = TicTacToeRZ::GamePlay::GameBoard.create_board
+    @game_board = TicTacToeRZ::GamePlay::GameBoard.new(@board)
   end
 
   context "method called create board" do
@@ -23,19 +23,19 @@ RSpec.describe "a game board" do
 
   context "method called update board" do
     it "raises a NilReferenceError when the game piece is nil" do
-      expect{ @game_board.update_board(0, nil) }.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ @game_board.update_board(0, nil) }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
 
     it "raises an InvalidValueError when the index is the length of the board" do
-      expect{ @game_board.update_board(9, "X") }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{ @game_board.update_board(9, "X") }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "raises an InvalidValueError when the index is greater than the length of the board" do
-      expect { @game_board.update_board(11, "X") }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect { @game_board.update_board(11, "X") }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "raises an InvalidValueError when the index is negative" do
-      expect { @game_board.update_board(-1, "X") }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect { @game_board.update_board(-1, "X") }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "updates a location on the board with the provided symbol" do
@@ -56,22 +56,22 @@ RSpec.describe "a game board" do
 
   context "method called revert board" do
     it "raises an InvalidValueError when the index is the length of the board" do
-      expect{ @game_board.revert_board(9) }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{ @game_board.revert_board(9) }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "raises an InvalidValueError when the index is greater than the length of the board" do
-      expect{ @game_board.revert_board(11) }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{ @game_board.revert_board(11) }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "raises an InvalidValueError when the index is negative" do
-      expect{ @game_board.revert_board(-1) }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{ @game_board.revert_board(-1) }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "reverts only the provided location on the board" do
       # first, update the board
       @game_board.update_board(0, "X")
       # then, revert the board
-      expected_board = TicTacToeRZ::GameBoard.create_board
+      expected_board = TicTacToeRZ::GamePlay::GameBoard.create_board
       @game_board.revert_board(0)
       result = @game_board.board - expected_board
       expect(result).to eq([])

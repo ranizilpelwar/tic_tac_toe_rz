@@ -6,7 +6,7 @@ module TicTacToeRZ
     module AvailableSpacesRules
 
       def self.get_available_spaces(board)
-        raise NilReferenceError, "board" if board.nil?
+        raise Exceptions::NilReferenceError, "board" if board.nil?
         available_spaces = []
         board.select do |tile_on_board| 
           digit?(tile_on_board)

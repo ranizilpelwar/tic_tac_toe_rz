@@ -11,8 +11,8 @@ RSpec.describe "get best move" do
 
   def create_computer_actions(new_board)
     player_manager = MockPlayerManager.new
-    @game_board = TicTacToeRZ::GameBoard.new(new_board)
-    @computer_actions = TicTacToeRZ::ComputerActions.new(@game_board, player_manager)
+    @game_board = TicTacToeRZ::GamePlay::GameBoard.new(new_board)
+    @computer_actions = TicTacToeRZ::GamePlay::ComputerActions.new(@game_board, player_manager)
   end
 
   it "raises a nil reference error when board is nil" do
@@ -20,7 +20,7 @@ RSpec.describe "get best move" do
                   "X", "5", "O",
                   "O", "X", "X" ]
     create_computer_actions(new_board)
-    expect { @computer_actions.get_best_move(nil, "X", 0, best_max_move, best_min_move) }.to raise_error(TicTacToeRZ::NilReferenceError)
+    expect { @computer_actions.get_best_move(nil, "X", 0, best_max_move, best_min_move) }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
   end
 
   it "raises an invalid value error when player symbol is a space character" do
@@ -28,7 +28,7 @@ RSpec.describe "get best move" do
                   "X", "5", "O",
                   "O", "X", "X" ]
     create_computer_actions(new_board)
-    expect { @computer_actions.get_best_move(new_board, " ", 0, best_max_move, best_min_move) }.to raise_error(TicTacToeRZ::InvalidValueError)
+    expect { @computer_actions.get_best_move(new_board, " ", 0, best_max_move, best_min_move) }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
   end
 
   it "returns index of negative one when there are no next moves to make" do

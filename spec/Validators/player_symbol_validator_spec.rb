@@ -5,7 +5,7 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid
 RSpec.describe "a player symbol validator" do
   shared_examples "valid symbol" do |description, input, expected|
     it "returns #{expected} for #{description}" do
-      expect(TicTacToeRZ::PlayerSymbolValidator.valid?(input)).to be expected
+      expect(TicTacToeRZ::Validators::PlayerSymbolValidator.valid?(input)).to be expected
     end
   end
 
@@ -20,11 +20,11 @@ RSpec.describe "a player symbol validator" do
     include_examples "valid symbol", "a space character", " ", false
   
     it "raises a NilReferenceError when input is nil" do
-      expect{ TicTacToeRZ::PlayerSymbolValidator.valid?(nil) }.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ TicTacToeRZ::Validators::PlayerSymbolValidator.valid?(nil) }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
 
     it "raises an InvalidValueError when input is an empty string" do
-      expect{ TicTacToeRZ::PlayerSymbolValidator.valid?("") }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{ TicTacToeRZ::Validators::PlayerSymbolValidator.valid?("") }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
   end
 end

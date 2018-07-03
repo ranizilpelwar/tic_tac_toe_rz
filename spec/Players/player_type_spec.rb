@@ -4,21 +4,21 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid
 RSpec.describe "a player type" do
   context "initialization" do
     it "raises a InvalidValueError when created as a robot" do
-      expect{TicTacToeRZ::PlayerType.new(:Robot)}.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{TicTacToeRZ::Players::PlayerType.new(:Robot)}.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
   end
 
   context "method called valid?" do
     it "returns true when a Human is entered as a parameter" do
-      expect(TicTacToeRZ::PlayerType.valid?(:Human)).to be true
+      expect(TicTacToeRZ::Players::PlayerType.valid?(:Human)).to be true
     end
 
     it "returns true when a Computer is entered as a parameter" do
-      expect(TicTacToeRZ::PlayerType.valid?(:Computer)).to be true
+      expect(TicTacToeRZ::Players::PlayerType.valid?(:Computer)).to be true
     end
 
     it "returns false when a Robot is entered as a parameter" do
-      expect(TicTacToeRZ::PlayerType.valid?(:Robot)).to be false
+      expect(TicTacToeRZ::Players::PlayerType.valid?(:Robot)).to be false
     end
   end
 end

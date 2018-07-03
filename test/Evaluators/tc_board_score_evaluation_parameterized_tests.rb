@@ -44,7 +44,7 @@ class BoardScoreEvaluationParameterizedTests < Test::Unit::TestCase
   ].each do |scenario, board, indexes, expected_score|
     test_name = "test_expected_score_of_line_is_returned_in_scenario_" + scenario
     define_method(test_name) { 
-      actual_score = TicTacToeRZ::BoardScoreEvaluator.score_of_line(board, indexes, "O", "X")
+      actual_score = TicTacToeRZ::Evaluators::BoardScoreEvaluator.score_of_line(board, indexes, "O", "X")
       assertion_failure_message = "Line score did not match expected results for scenario " + scenario
       assert_equal(expected_score, actual_score, assertion_failure_message) 
     }
@@ -84,7 +84,7 @@ class BoardScoreEvaluationParameterizedTests < Test::Unit::TestCase
   ].each do |scenario, board, expected_score|
     test_name = "test_expected_score_of_board_is_returned_in_scenario_" + scenario
     define_method(test_name) { 
-      actual_score = TicTacToeRZ::BoardScoreEvaluator.score_of_board(board, "O", "X")
+      actual_score = TicTacToeRZ::Evaluators::BoardScoreEvaluator.score_of_board(board, "O", "X")
       assertion_failure_message = "Board score did not match expected results for scenario " + scenario
       assert_equal(expected_score, actual_score, assertion_failure_message) 
     }

@@ -8,7 +8,7 @@ RSpec.describe "a yaml writer" do
       file_path = "../../../../spec/TestFiles/testing.en.yaml"
       property = "test_property"
       value = DateTime.now.to_s
-      TicTacToeRZ::YAMLWriter.write_data(file_path, property, value)
+      TicTacToeRZ::Languages::YAMLWriter.write_data(file_path, property, value)
       file_path = File.dirname(__FILE__) + '/' + "../TestFiles/testing.en.yaml"
       yaml_file = YAML.load_file(file_path)
       actual_value = yaml_file[property]
@@ -19,56 +19,56 @@ RSpec.describe "a yaml writer" do
       file_path = nil
       property = "test_property"
       value = DateTime.now.to_s
-      expect{ TicTacToeRZ::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ TicTacToeRZ::Languages::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
 
     it "raises a NilReferenceError when property is nil" do
       file_path = "../../../../spec/TestFiles/testing.en.yaml"
       property = nil
       value = DateTime.now.to_s
-      expect{ TicTacToeRZ::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ TicTacToeRZ::Languages::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
 
     it "raises a NilReferenceError when value is nil" do
       file_path = "../../../../spec/TestFiles/testing.en.yaml"
       property = "test_property"
       value = nil
-      expect{ TicTacToeRZ::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ TicTacToeRZ::Languages::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
 
     it "raises an InvalidValueError when file_path is empty" do
       file_path = ""
       property = "test_property"
       value = DateTime.now.to_s
-      expect{ TicTacToeRZ::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{ TicTacToeRZ::Languages::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "raises an InvalidValueError when property is empty" do
       file_path = "../../../../spec/TestFiles/testing.en.yaml"
       property = ""
       value = DateTime.now.to_s
-      expect{ TicTacToeRZ::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{ TicTacToeRZ::Languages::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "raises an InvalidValueError when value is empty" do
       file_path = "../../../../spec/TestFiles/testing.en.yaml"
       property = "test_property"
       value = ""
-      expect{ TicTacToeRZ::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{ TicTacToeRZ::Languages::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "raises an InvalidValueError when file is non-existent" do
       file_path = "../../../../spec/TestFiles/testing1.en.yaml"
       property = "test_property"
       value = DateTime.now.to_s
-      expect{ TicTacToeRZ::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{ TicTacToeRZ::Languages::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "raises an InvalidValueError when nothing is written to the file" do
       file_path = "../../../../spec/TestFiles/testing.en.yaml"
       property = "test_property"
       value = ""
-      expect{ TicTacToeRZ::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{ TicTacToeRZ::Languages::YAMLWriter.write_data(file_path, property, value) }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
   end
 end

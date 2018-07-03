@@ -5,7 +5,7 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_ref
 RSpec.describe "an available spaces validator" do
   context "method called get_available_spaces" do
     it "raises a NilReferenceError when the board is nil" do
-      expect{ TicTacToeRZ::GameRules::AvailableSpacesRules.get_available_spaces(nil) }.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ TicTacToeRZ::GameRules::AvailableSpacesRules.get_available_spaces(nil) }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
 
     it "returns one element when there is only one available spot on the board" do
@@ -25,7 +25,7 @@ RSpec.describe "an available spaces validator" do
     end
 
     it "returns nine elements when they are all available spots on the board" do
-      board = TicTacToeRZ::GameBoard.create_board
+      board = TicTacToeRZ::GamePlay::GameBoard.create_board
       expected_result = 9
       available_spaces = TicTacToeRZ::GameRules::AvailableSpacesRules.get_available_spaces(board)
       actual_result = available_spaces.length

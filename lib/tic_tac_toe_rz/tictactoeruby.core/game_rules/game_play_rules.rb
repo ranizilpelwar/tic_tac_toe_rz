@@ -12,7 +12,7 @@ module TicTacToeRZ
       # 1) is_valid: True if the tile chosen on the board is a valid move that can be made in the game and false otherwise, and
       # 2) index_of_board: index on the board on which a move should be made. It is provided if is_valid is true. It is -1 otherwise.
       def self.evaluate_move(game_board, tile_on_board)
-        raise NilReferenceError, "game_board" if game_board.nil?
+        raise Exceptions::NilReferenceError, "game_board" if game_board.nil?
         is_valid_move = false
         index_of_board = -1
         is_digit = AvailableSpacesRules.digit?(tile_on_board)
@@ -29,9 +29,9 @@ module TicTacToeRZ
       end
 
       def self.winning_game?(player_symbol, board, available_spaces)
-        raise NilReferenceError, "board" if board.nil?
-        raise NilReferenceError, "available_spaces" if available_spaces.nil?
-        raise InvalidValueError, "player_symbol" if !PlayerSymbolValidator.valid?(player_symbol)
+        raise Exceptions::NilReferenceError, "board" if board.nil?
+        raise Exceptions::NilReferenceError, "available_spaces" if available_spaces.nil?
+        raise Exceptions::InvalidValueError, "player_symbol" if !Validators::PlayerSymbolValidator.valid?(player_symbol)
 
         found_best_move = false
         winning_spot = -1

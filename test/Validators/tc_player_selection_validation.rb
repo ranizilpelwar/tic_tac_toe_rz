@@ -7,14 +7,14 @@ class TestPlayerSelectionValidation < Test::Unit::TestCase
     input = ""
     player_symbol_one = "A"
     player_symbol_two = "B"
-    assert_raise TicTacToeRZ::InvalidValueError do TicTacToeRZ::PlayerSelectionValidator.valid?(input, player_symbol_one, player_symbol_two) end
+    assert_raise TicTacToeRZ::Exceptions::InvalidValueError do TicTacToeRZ::Validators::PlayerSelectionValidator.valid?(input, player_symbol_one, player_symbol_two) end
   end
 
   def test_a_space_character_should_not_match_symbol_entries
     input = " "
     player_symbol_one = "A"
     player_symbol_two = "B"
-    return_value = TicTacToeRZ::PlayerSelectionValidator.valid?(input, player_symbol_one, player_symbol_two)
+    return_value = TicTacToeRZ::Validators::PlayerSelectionValidator.valid?(input, player_symbol_one, player_symbol_two)
     assert_false(return_value, "A space character should not match symbol entries.")
   end
 
@@ -22,7 +22,7 @@ class TestPlayerSelectionValidation < Test::Unit::TestCase
     input = "1"
     player_symbol_one = "A"
     player_symbol_two = "B"
-    return_value = TicTacToeRZ::PlayerSelectionValidator.valid?(input, player_symbol_one, player_symbol_two)
+    return_value = TicTacToeRZ::Validators::PlayerSelectionValidator.valid?(input, player_symbol_one, player_symbol_two)
     assert_false(return_value, "A digit should not match symbol entries.")
   end
 
@@ -30,7 +30,7 @@ class TestPlayerSelectionValidation < Test::Unit::TestCase
     input = "a"
     player_symbol_one = "A"
     player_symbol_two = "B"
-    return_value = TicTacToeRZ::PlayerSelectionValidator.valid?(input, player_symbol_one, player_symbol_two)
+    return_value = TicTacToeRZ::Validators::PlayerSelectionValidator.valid?(input, player_symbol_one, player_symbol_two)
     assert(return_value, "A lowercase value should match a symbol entry for player one.")
   end
 
@@ -38,7 +38,7 @@ class TestPlayerSelectionValidation < Test::Unit::TestCase
     input = "b"
     player_symbol_one = "A"
     player_symbol_two = "B"
-    return_value = TicTacToeRZ::PlayerSelectionValidator.valid?(input, player_symbol_one, player_symbol_two)
+    return_value = TicTacToeRZ::Validators::PlayerSelectionValidator.valid?(input, player_symbol_one, player_symbol_two)
     assert(return_value, "A lowercase value should match a symbol entry for player two.")
   end
 end

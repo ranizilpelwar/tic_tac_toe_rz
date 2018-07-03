@@ -7,9 +7,9 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/players/player_man
 class TestPlayerManagerInitialization < Test::Unit::TestCase
   
   def setup
-    @player1 = TicTacToeRZ::Player.new(:Human, "X")
-    @player2 = TicTacToeRZ::Player.new(:Computer, "Y")
-    @player_manager = TicTacToeRZ::PlayerManager.new(@player1, @player2)
+    @player1 = TicTacToeRZ::Players::Player.new(:Human, "X")
+    @player2 = TicTacToeRZ::Players::Player.new(:Computer, "Y")
+    @player_manager = TicTacToeRZ::Players::PlayerManager.new(@player1, @player2)
   end
 
   def test_player_manager_initialization_sets_player1_to_the_given_value

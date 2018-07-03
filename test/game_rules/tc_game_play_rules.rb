@@ -15,11 +15,11 @@ class GamePlayValidation < Test::Unit::TestCase
     board = [ "0", "1", "2",
               "3", "X", "5",
               "O", "X", "O" ]
-    @game_board = TicTacToeRZ::GameBoard.new(board)
+    @game_board = TicTacToeRZ::GamePlay::GameBoard.new(board)
   end
 
   def test_evaluate_move_raises_a_nil_reference_error_when_game_board_is_nil
-    assert_raises(TicTacToeRZ::NilReferenceError) do TicTacToeRZ::GameRules::GamePlayRules.evaluate_move(nil, "1") end
+    assert_raises(TicTacToeRZ::Exceptions::NilReferenceError) do TicTacToeRZ::GameRules::GamePlayRules.evaluate_move(nil, "1") end
   end
 
   def test_evaluate_move_returns_two_elements
@@ -55,16 +55,16 @@ class GamePlayValidation < Test::Unit::TestCase
 
   def test_winning_game_raises_a_nil_reference_error_when_game_board_is_nil
     available_spaces = [0, 1]
-    assert_raises(TicTacToeRZ::NilReferenceError) do TicTacToeRZ::GameRules::GamePlayRules.winning_game?("X", nil, available_spaces) end
+    assert_raises(TicTacToeRZ::Exceptions::NilReferenceError) do TicTacToeRZ::GameRules::GamePlayRules.winning_game?("X", nil, available_spaces) end
   end
 
   def test_winning_game_raises_a_nil_reference_error_when_available_spaces_is_nil
-    assert_raises(TicTacToeRZ::NilReferenceError) do TicTacToeRZ::GameRules::GamePlayRules.winning_game?("X", @game_board.board, nil) end
+    assert_raises(TicTacToeRZ::Exceptions::NilReferenceError) do TicTacToeRZ::GameRules::GamePlayRules.winning_game?("X", @game_board.board, nil) end
   end
 
   def test_winning_game_raises_an_invalid_value_error_when_player_symbol_is_invalid
     available_spaces = [0, 1]
-    assert_raises(TicTacToeRZ::InvalidValueError) do TicTacToeRZ::GameRules::GamePlayRules.winning_game?("1", @game_board.board, available_spaces) end
+    assert_raises(TicTacToeRZ::Exceptions::InvalidValueError) do TicTacToeRZ::GameRules::GamePlayRules.winning_game?("1", @game_board.board, available_spaces) end
   end
 
   def test_winning_game_returns_two_elements

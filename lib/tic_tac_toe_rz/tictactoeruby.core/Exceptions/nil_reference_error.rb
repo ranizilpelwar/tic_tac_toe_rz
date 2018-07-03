@@ -1,4 +1,6 @@
 module TicTacToeRZ
-  class NilReferenceError < StandardError
+  module Exceptions
+    class NilReferenceError < StandardError
+    end
   end
 end

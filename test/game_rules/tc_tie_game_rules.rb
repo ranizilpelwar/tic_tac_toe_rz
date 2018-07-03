@@ -6,11 +6,11 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_ref
 
 class TestTieGameValidation < Test::Unit::TestCase
   def test_tie_game_raises_error_when_provided_board_is_nil
-    assert_raises(TicTacToeRZ::NilReferenceError) do TicTacToeRZ::GameRules::TieGameRules.tie_game?(nil) end
+    assert_raises(TicTacToeRZ::Exceptions::NilReferenceError) do TicTacToeRZ::GameRules::TieGameRules.tie_game?(nil) end
   end
 
   def test_tie_game_returns_false_on_brand_new_unplayed_board
-    board = TicTacToeRZ::GameBoard.create_board
+    board = TicTacToeRZ::GamePlay::GameBoard.create_board
     assert(!TicTacToeRZ::GameRules::TieGameRules.tie_game?(board), "Expected false to be returned on unplayed board.")
   end
 

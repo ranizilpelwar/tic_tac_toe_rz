@@ -14,8 +14,8 @@ class TestComputerActions < Test::Unit::TestCase
 
   def create_computer_actions(new_board)
     players = MockPlayerManager.new
-    @game_board = TicTacToeRZ::GameBoard.new(new_board)
-    @computer_actions = TicTacToeRZ::ComputerActions.new(@game_board, players)
+    @game_board = TicTacToeRZ::GamePlay::GameBoard.new(new_board)
+    @computer_actions = TicTacToeRZ::GamePlay::ComputerActions.new(@game_board, players)
   end
 
   def test_get_best_move_raises_a_nil_reference_error_when_board_is_nil
@@ -23,7 +23,7 @@ class TestComputerActions < Test::Unit::TestCase
                   "X", "5", "O",
                   "O", "X", "X" ]
     create_computer_actions(new_board)
-    assert_raises(TicTacToeRZ::NilReferenceError) do
+    assert_raises(TicTacToeRZ::Exceptions::NilReferenceError) do
       @computer_actions.get_best_move(nil, "X", 0, BEST_MAX_MOVE, BEST_MIN_MOVE)
     end
   end
@@ -33,7 +33,7 @@ class TestComputerActions < Test::Unit::TestCase
                   "X", "5", "O",
                   "O", "X", "X" ]
     create_computer_actions(new_board)
-    assert_raises(TicTacToeRZ::NilReferenceError) do
+    assert_raises(TicTacToeRZ::Exceptions::NilReferenceError) do
       @computer_actions.get_best_move(nil, " ", 0, BEST_MAX_MOVE, BEST_MIN_MOVE)
     end
   end

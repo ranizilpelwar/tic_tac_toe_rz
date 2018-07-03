@@ -7,9 +7,9 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/players/player_man
 class TestPlayerManager < Test::Unit::TestCase
   
   def setup
-    @player1 = TicTacToeRZ::Player.new(:Human, "X")
-    @player2 = TicTacToeRZ::Player.new(:Computer, "Y")
-    @player_manager = TicTacToeRZ::PlayerManager.new(@player1, @player2)
+    @player1 = TicTacToeRZ::Players::Player.new(:Human, "X")
+    @player2 = TicTacToeRZ::Players::Player.new(:Computer, "Y")
+    @player_manager = TicTacToeRZ::Players::PlayerManager.new(@player1, @player2)
   end
 
   def test_player_manager_get_next_player_returns_correct_player
@@ -41,12 +41,12 @@ class TestPlayerManager < Test::Unit::TestCase
   end
   
   def test_get_player_number_returns_negative_one_when_player_cannot_be_found
-    player = TicTacToeRZ::Player.new(:Human, "O")
+    player = TicTacToeRZ::Players::Player.new(:Human, "O")
     assert_equal(-1, @player_manager.get_player_number(player))
   end
 
   def test_get_player_number_raises_a_nil_reference_error_when_player_is_nil
-    assert_raises(TicTacToeRZ::NilReferenceError) do
+    assert_raises(TicTacToeRZ::Exceptions::NilReferenceError) do
       @player_manager.get_player_number(nil)
     end
   end

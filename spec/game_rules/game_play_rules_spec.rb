@@ -10,7 +10,7 @@ RSpec.describe "a game play validator" do
     board = [ "0", "1", "2",
               "3", "X", "5",
               "O", "X", "O" ]
-    @game_board = TicTacToeRZ::GameBoard.new(board)
+    @game_board = TicTacToeRZ::GamePlay::GameBoard.new(board)
   end
   
   shared_examples "evaluate_move" do |description, value, expected|
@@ -21,7 +21,7 @@ RSpec.describe "a game play validator" do
 
   context "method called evaluate_move" do
     it "raises a NilReferenceError when game board is nil" do
-      expect{ TicTacToeRZ::GameRules::GamePlayRules.evaluate_move(nil, "1") }.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ TicTacToeRZ::GameRules::GamePlayRules.evaluate_move(nil, "1") }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
 
     it "returns two elements" do
@@ -43,16 +43,16 @@ RSpec.describe "a game play validator" do
   context "method called winning_game?" do
     it "raises a NilReferenceError when game board is nil" do
       available_spaces = [0, 1]
-      expect{ TicTacToeRZ::GameRules::GamePlayRules.winning_game?("X", nil, available_spaces) }.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ TicTacToeRZ::GameRules::GamePlayRules.winning_game?("X", nil, available_spaces) }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
 
     it "raises a NilReferenceError when available spaces is nil" do
-      expect{ TicTacToeRZ::GameRules::GamePlayRules.winning_game?("X", @game_board.board, nil) }.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ TicTacToeRZ::GameRules::GamePlayRules.winning_game?("X", @game_board.board, nil) }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
 
     it "raises an InvalidValueError when player symbol is invalid" do
       available_spaces = [0, 1]
-      expect{ TicTacToeRZ::GameRules::GamePlayRules.winning_game?("1", @game_board.board, available_spaces) }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{ TicTacToeRZ::GameRules::GamePlayRules.winning_game?("1", @game_board.board, available_spaces) }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "returns two elements" do

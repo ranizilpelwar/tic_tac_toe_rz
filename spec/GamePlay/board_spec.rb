@@ -3,7 +3,7 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/game_rules/availab
 
 RSpec.describe "a Tic Tac Toe board" do
   before(:each) do
-    @game = TicTacToeRZ::GameBoard.new(TicTacToeRZ::GameBoard.create_board)
+    @game = TicTacToeRZ::GamePlay::GameBoard.new(TicTacToeRZ::GamePlay::GameBoard.create_board)
   end
 
   it "is a grid with nine squares" do

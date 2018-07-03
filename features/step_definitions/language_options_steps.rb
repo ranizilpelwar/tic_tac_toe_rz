@@ -4,12 +4,12 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid
 Given("default language is {string}") do |language|
   @directory_path_for_default_language = "../../../../features/test_files/"
 	@directory_path_for_default_language = @directory_path_for_default_language + "default_language_" + language.downcase + "/"
-  raise_error(TicTacToeRZ::InvalidValueError) if !File.exist?(@directory_path_for_default_language)
+  raise_error(TicTacToeRZ::Exceptions::InvalidValueError) if !File.exist?(@directory_path_for_default_language)
   @starting_default_tag = language == "English" ? "en" : "es"
 end
 
 When("the user is on the language configuration screen") do
-	@language_adapter_with_default_language_selected = TicTacToeRZ::LanguageOptionsAdapter.new(@directory_path_for_default_language)
+	@language_adapter_with_default_language_selected = TicTacToeRZ::Languages::LanguageOptionsAdapter.new(@directory_path_for_default_language)
 	@language_adapter_with_default_language_selected.default_language_tag!(@starting_default_tag)
 end
 

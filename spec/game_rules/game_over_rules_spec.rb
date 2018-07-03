@@ -13,7 +13,7 @@ RSpec.describe "a game over validator" do
 
   context "method called game_over?" do
     it "raises an NilReferenceError when board is nil" do
-      expect{ TicTacToeRZ::GameRules::GameOverRules.game_over?(nil) }.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ TicTacToeRZ::GameRules::GameOverRules.game_over?(nil) }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
   
     include_examples "game_over?", "first row contains matching tiles", ["X", "X", "X", "X", "4", "5", "6", "7", "8", "9"], true
@@ -25,7 +25,7 @@ RSpec.describe "a game over validator" do
     include_examples "game_over?", "left to right diagonal contains matching tiles", ["X", "2", "3", "4", "X", "6", "7", "8", "X"], true
     include_examples "game_over?", "right to left diagonal contains matching tiles", ["1", "2", "X", "4", "X", "6", "X", "8", "9"], true
     include_examples "game_over?", "there are no matching tiles on the board", ["1", "2", "3", "4", "X", "6", "X", "8", "9"], false
-    include_examples "game_over?", "there are no played moves on the board yet", TicTacToeRZ::GameBoard.create_board, false
+    include_examples "game_over?", "there are no played moves on the board yet", TicTacToeRZ::GamePlay::GameBoard.create_board, false
   end
 
   shared_examples "win_for_player?" do |description, symbol, board, expected|
@@ -36,11 +36,11 @@ RSpec.describe "a game over validator" do
 
   context "method called win_for_player?" do
     it "raises an NilReferenceError when board is nil" do
-      expect{ TicTacToeRZ::GameRules::GameOverRules.win_for_player?("X", nil)}.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ TicTacToeRZ::GameRules::GameOverRules.win_for_player?("X", nil)}.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
     
     it "raises an InvalidValueError when player symbol is invalid" do
-      expect{ TicTacToeRZ::GameRules::GameOverRules.win_for_player?("1", TicTacToeRZ::GameBoard.create_board)}.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{ TicTacToeRZ::GameRules::GameOverRules.win_for_player?("1", TicTacToeRZ::GamePlay::GameBoard.create_board)}.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     include_examples "win_for_player?", "first row contains matching tiles", "X", ["X", "X", "X", "X", "4", "5", "6", "7", "8", "9"], true
@@ -52,6 +52,6 @@ RSpec.describe "a game over validator" do
     include_examples "win_for_player?", "left to right diagonal contains matching tiles", "X", ["X", "2", "3", "4", "X", "6", "7", "8", "X"], true
     include_examples "win_for_player?", "right to left diagonal contains matching tiles", "X", ["1", "2", "X", "4", "X", "6", "X", "8", "9"], true
     include_examples "win_for_player?", "there are no matching tiles on the board", "X", ["1", "2", "3", "4", "X", "6", "X", "8", "9"], false
-    include_examples "win_for_player?", "there are no played moves on the board yet", "X", TicTacToeRZ::GameBoard.create_board, false
+    include_examples "win_for_player?", "there are no played moves on the board yet", "X", TicTacToeRZ::GamePlay::GameBoard.create_board, false
   end
 end

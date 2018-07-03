@@ -17,7 +17,7 @@ RSpec.describe "a game" do
   end
 
   it "allows the user to chose from three types of matches" do
-    match_type_manager = TicTacToeRZ::MatchTypeManager.new
+    match_type_manager = TicTacToeRZ::GamePlay::MatchTypeManager.new
     expect(match_type_manager.get_total_available_matches).to eq(3)
   end
 
@@ -33,7 +33,7 @@ RSpec.describe "a game" do
     symbol1 = "X"
     symbol2 = "Y"
     selection = "X"
-    expect(TicTacToeRZ::PlayerSelectionValidator.valid?(selection, symbol1, symbol2)).to be true
+    expect(TicTacToeRZ::Validators::PlayerSelectionValidator.valid?(selection, symbol1, symbol2)).to be true
   end
 
   it "can end in a win when a player has three squares in a row" do
@@ -70,10 +70,10 @@ RSpec.describe "a game" do
   end
  
   def match_manager
-    TicTacToeRZ::MatchTypeManager.new
+    TicTacToeRZ::GamePlay::MatchTypeManager.new
   end
 
   def movement_manager(match_type)
-    TicTacToeRZ::PlayerMovementManager.new(match_type)
+    TicTacToeRZ::Players::PlayerMovementManager.new(match_type)
   end
 end
