@@ -5,18 +5,18 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/match_typ
 require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid_value_error.rb'
 
 Then("it can") do
-  @player = TicTacToeRZ::Player.new(@player_type, "X")
+  @player = TicTacToeRZ::Players::Player.new(@player_type, "X")
   expect(@player_type.selected_option).to eq(@type)
 end
 
 When(/a (Human|Computer) wants to play the game/) do |type|
   @type = type.to_sym
-  @player_type = TicTacToeRZ::PlayerType.new(@type)
+  @player_type = TicTacToeRZ::Players::PlayerType.new(@type)
 end
 
 Given("only a Computer is available to play") do
   @type = :Computer
-  @player_type = TicTacToeRZ::PlayerType.new(@type)
+  @player_type = TicTacToeRZ::Players::PlayerType.new(@type)
 end
 
 When("a Dog wants to play the game") do
@@ -24,12 +24,12 @@ When("a Dog wants to play the game") do
 end
 
 Then("it cannot") do
-  expect{ @player_type = TicTacToeRZ::PlayerType.new(@type) }.to raise_error(TicTacToeRZ::InvalidValueError)
+  expect{ @player_type = TicTacToeRZ::Players::PlayerType.new(@type) }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
 end
 
 When(/(\A[^0-9\s]{1}) is selected as a symbol\Z/) do |character|
   @character = character
-  @player = TicTacToeRZ::Player.new(TicTacToeRZ::PlayerType.new(:Human), character)
+  @player = TicTacToeRZ::Players::Player.new(TicTacToeRZ::Players::PlayerType.new(:Human), character)
 end
 
 Then("it can be used as a symbol") do
@@ -45,5 +45,5 @@ When(/^(.{2,}) is selected as a symbol$/) do |character|
 end
 
 Then("it cannot be used as a symbol") do
-  expect{ @player = TicTacToeRZ::Player.new(TicTacToeRZ::PlayerType.new(:Human), @character)}.to raise_error(TicTacToeRZ::InvalidValueError)
+  expect{ @player = TicTacToeRZ::Players::Player.new(TicTacToeRZ::Players::PlayerType.new(:Human), @character)}.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
 end

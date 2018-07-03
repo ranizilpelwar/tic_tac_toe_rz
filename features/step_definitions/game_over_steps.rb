@@ -1,12 +1,12 @@
-require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/tie_game_validator.rb'
-require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/game_over_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/game_rules/tie_game_rules.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/game_rules/game_over_rules.rb'
 
 When("all spaces are occupied with no tic tac toe configuration on the board") do
   @board = ["X", "X", "Y", "Y", "Y", "X", "X", "X", "Y"]
 end
 
 Then("the game has ended in a tie") do
-	expect(TicTacToeRZ::TieGameValidator.tie_game?(@board)).to be true
+	expect(TicTacToeRZ::GameRules::TieGameRules.tie_game?(@board)).to be true
 end
 
 When("there are three squares in a single row on the board, all occupied by player symbol {string}") do |string|
@@ -14,11 +14,11 @@ When("there are three squares in a single row on the board, all occupied by play
 end
 
 Then("the player with a symbol {string} has won the game") do |string|
-  expect(TicTacToeRZ::GameOverValidator.win_for_player?(string, @board)).to eq(true)
+  expect(TicTacToeRZ::GameRules::GameOverRules.win_for_player?(string, @board)).to eq(true)
 end
 
 Then("the game is over") do
-	expect(TicTacToeRZ::GameOverValidator.game_over?(@board)).to eq(true)
+	expect(TicTacToeRZ::GameRules::GameOverRules.game_over?(@board)).to eq(true)
 end
 
 When("there are three squares in a single column on the board, all occupied by player symbol {string}") do |string|

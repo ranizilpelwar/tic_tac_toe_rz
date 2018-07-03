@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'tic_tac_toe_rz'
-  s.version     = '1.1.00'
-  s.date        = '2018-06-07'
+  s.version     = '2.0.00'
+  s.date        = '2018-07-02'
   s.summary     = "Tic Tac Toe API"
   s.description = "Tic Tac Toe API written in Ruby"
   s.authors     = ["Rani Zilpelwar"]
@@ -33,13 +33,13 @@ Gem::Specification.new do |s|
     "lib/tic_tac_toe_rz/tictactoeruby.core/players/player_movement_manager.rb",
     "lib/tic_tac_toe_rz/tictactoeruby.core/players/player_type.rb",
     "lib/tic_tac_toe_rz/tictactoeruby.core/players/player.rb",
-    "lib/tic_tac_toe_rz/tictactoeruby.core/validators/available_spaces_validator.rb",
-    "lib/tic_tac_toe_rz/tictactoeruby.core/validators/game_over_validator.rb",
-    "lib/tic_tac_toe_rz/tictactoeruby.core/validators/game_play_validator.rb",
+    "lib/tic_tac_toe_rz/tictactoeruby.core/game_rules/available_spaces_rules.rb",
+    "lib/tic_tac_toe_rz/tictactoeruby.core/game_rules/game_over_rules.rb",
+    "lib/tic_tac_toe_rz/tictactoeruby.core/game_rules/game_play_rules.rb",
     "lib/tic_tac_toe_rz/tictactoeruby.core/validators/input_validator.rb",
     "lib/tic_tac_toe_rz/tictactoeruby.core/validators/player_selection_validator.rb",
     "lib/tic_tac_toe_rz/tictactoeruby.core/validators/player_symbol_validator.rb",
-    "lib/tic_tac_toe_rz/tictactoeruby.core/validators/tie_game_validator.rb",
+    "lib/tic_tac_toe_rz/tictactoeruby.core/game_rules/tie_game_rules.rb",
 	  "features/board.feature",
 		"features/computer_actions.feature",
 		"features/game_over.feature",
@@ -75,12 +75,12 @@ Gem::Specification.new do |s|
 	  "spec/players/player_spec.rb",
 	  "spec/players/player_type_spec.rb",
 	  "spec/testfiles/testing.en.yaml",
-	  "spec/validators/available_spaces_validator_spec.rb",
-	  "spec/validators/game_over_validator_spec.rb",
-	  "spec/validators/game_play_validator_spec.rb",
+	  "spec/game_rules/available_spaces_rules_spec.rb",
+	  "spec/game_rules/game_over_rules_spec.rb",
+	  "spec/game_rules/game_play_rules_spec.rb",
 	  "spec/validators/player_selection_validator_spec.rb",
 	  "spec/validators/player_symbol_validator_spec.rb",
-	  "spec/validators/tie_game_validator_spec.rb",
+	  "spec/game_rules/tie_game_rules_spec.rb",
 	  "test/evaluators/tc_board_score_evaluation.rb",
 	  "test/evaluators/tc_board_score_evaluation_parameterized_tests.rb",
 	  "test/gameplay/tc_computer_actions.rb",
@@ -93,12 +93,12 @@ Gem::Specification.new do |s|
 		"test/players/tc_player_manager_initialization.rb",
 		"test/players/tc_player_movement_manager.rb",
 		"test/players/tc_player_type.rb",
-		"test/validators/tc_available_spaces_validation.rb",
-		"test/validators/tc_game_over_validation.rb",
-		"test/validators/tc_game_play_validation.rb",
+		"test/game_rules/tc_available_spaces_rules.rb",
+		"test/game_rules/tc_game_over_rules.rb",
+		"test/game_rules/tc_game_play_rules.rb",
 		"test/validators/tc_player_selection_validation.rb",
 		"test/validators/tc_player_symbol_validation.rb",
-		"test/validators/tc_tie_game_validation.rb"]
+		"test/game_rules/tc_tie_game_rules.rb"]
   s.homepage    =
     'http://rubygems.org'
   s.license       = 'MIT'

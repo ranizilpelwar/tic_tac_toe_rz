@@ -1,4 +1,6 @@
 module TicTacToeRZ
-  class GameRuleViolationError < StandardError
+  module Exceptions
+    class GameRuleViolationError < StandardError
+    end
   end
 end

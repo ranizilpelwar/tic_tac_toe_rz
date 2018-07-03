@@ -1,4 +1,6 @@
 module TicTacToeRZ
-  class PlayerTypeError < StandardError
+  module Exceptions
+    class PlayerTypeError < StandardError
+    end
   end
 end

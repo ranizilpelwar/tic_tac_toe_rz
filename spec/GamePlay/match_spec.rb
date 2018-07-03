@@ -3,7 +3,7 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/match_typ
 
 RSpec.describe "a match" do
   
-  let(:matches) { TicTacToeRZ::MatchTypeManager.new }
+  let(:matches) { TicTacToeRZ::GamePlay::MatchTypeManager.new }
 
   it "can be a Human vs a Human" do
     match = matches.get_match_type(1)

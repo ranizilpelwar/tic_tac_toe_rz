@@ -6,45 +6,45 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/invalid
 RSpec.describe "a board score evaluator" do
   context "method called score_of_board" do
     it "raises a NilReferenceError when board is nil" do
-      expect{ TicTacToeRZ::BoardScoreEvaluator.score_of_board(nil, "X", "Y") }.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ TicTacToeRZ::Evaluators::BoardScoreEvaluator.score_of_board(nil, "X", "Y") }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
 
     it "raises an InvalidValueError when symbol of current player is invalid" do
-      board = TicTacToeRZ::GameBoard.create_board
-      expect{ TicTacToeRZ::BoardScoreEvaluator.score_of_board(board, "1", "Y") }.to raise_error(TicTacToeRZ::InvalidValueError)
+      board = TicTacToeRZ::GamePlay::GameBoard.create_board
+      expect{ TicTacToeRZ::Evaluators::BoardScoreEvaluator.score_of_board(board, "1", "Y") }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "raises an InvalidValueError when symbol of other player is invalid" do
-      board = TicTacToeRZ::GameBoard.create_board
-      expect{ TicTacToeRZ::BoardScoreEvaluator.score_of_board(board, "X", "1") }.to raise_error(TicTacToeRZ::InvalidValueError)
+      board = TicTacToeRZ::GamePlay::GameBoard.create_board
+      expect{ TicTacToeRZ::Evaluators::BoardScoreEvaluator.score_of_board(board, "X", "1") }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
   end
 
   shared_examples "score of line" do |scenario, board, indexes, expected_score|
     it "returns expected score for scenario #{scenario}" do
-      actual_score = TicTacToeRZ::BoardScoreEvaluator.score_of_line(board, indexes, "O", "X")
+      actual_score = TicTacToeRZ::Evaluators::BoardScoreEvaluator.score_of_line(board, indexes, "O", "X")
       expect(actual_score).to eq(expected_score)
     end
   end
 
   context "method called score_of_line" do
     it "raises a NilReferenceError when board is nil" do
-      expect{ TicTacToeRZ::BoardScoreEvaluator.score_of_line(nil, [], "X", "Y") }.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ TicTacToeRZ::Evaluators::BoardScoreEvaluator.score_of_line(nil, [], "X", "Y") }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
 
     it "raises a NilReferenceError when indexes is nil" do
-      board = TicTacToeRZ::GameBoard.create_board
-      expect{ TicTacToeRZ::BoardScoreEvaluator.score_of_line(board, nil, "X", "Y") }.to raise_error(TicTacToeRZ::NilReferenceError)
+      board = TicTacToeRZ::GamePlay::GameBoard.create_board
+      expect{ TicTacToeRZ::Evaluators::BoardScoreEvaluator.score_of_line(board, nil, "X", "Y") }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
 
     it "raises an InvalidValueError when symbol of current player is invalid" do
-      board = TicTacToeRZ::GameBoard.create_board
-      expect{ TicTacToeRZ::BoardScoreEvaluator.score_of_line(board, [], "1", "Y") }.to raise_error(TicTacToeRZ::InvalidValueError)
+      board = TicTacToeRZ::GamePlay::GameBoard.create_board
+      expect{ TicTacToeRZ::Evaluators::BoardScoreEvaluator.score_of_line(board, [], "1", "Y") }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "raises an InvalidValueError when symbol of other player is invalid" do
-      board = TicTacToeRZ::GameBoard.create_board
-      expect{ TicTacToeRZ::BoardScoreEvaluator.score_of_line(board, [], "X", "1") }.to raise_error(TicTacToeRZ::InvalidValueError)
+      board = TicTacToeRZ::GamePlay::GameBoard.create_board
+      expect{ TicTacToeRZ::Evaluators::BoardScoreEvaluator.score_of_line(board, [], "X", "1") }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     include_examples "score of line", 1, ["O", "O", "O", "O", "5", "O", "7", "O", "X"], [0, 1, 2], 100
@@ -61,7 +61,7 @@ RSpec.describe "a board score evaluator" do
 
   shared_examples "score of board" do |scenario, board, expected_score|
     it "returns expected score for scenario #{scenario}" do
-      actual_score = TicTacToeRZ::BoardScoreEvaluator.score_of_board(board, "O", "X")
+      actual_score = TicTacToeRZ::Evaluators::BoardScoreEvaluator.score_of_board(board, "O", "X")
       expect(actual_score).to eq(expected_score)
     end
   end

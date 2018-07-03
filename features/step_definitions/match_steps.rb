@@ -4,9 +4,9 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/match_typ
 require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/match_type_manager.rb'
 
 When(/match option ([1-3]{1}) is selected/) do |number|
-  @match_type_manager = TicTacToeRZ::MatchTypeManager.new
+  @match_type_manager = TicTacToeRZ::GamePlay::MatchTypeManager.new
   @match_type = @match_type_manager.get_match_type(number.to_i)
-  @player1 = TicTacToeRZ::Player.new(@player_type, "X")
+  @player1 = TicTacToeRZ::Players::Player.new(@player_type, "X")
 end
 
 Then(/the second player is a (Human|Computer)/) do |type2|
@@ -16,6 +16,6 @@ Then(/the second player is a (Human|Computer)/) do |type2|
 end
 
 Then("there are three total match options available") do
-  match_manager = TicTacToeRZ::MatchTypeManager.new
+  match_manager = TicTacToeRZ::GamePlay::MatchTypeManager.new
   expect(match_manager.get_total_available_matches).to eq(3)
 end

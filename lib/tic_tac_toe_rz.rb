@@ -18,13 +18,13 @@ require_relative "./tic_tac_toe_rz/tictactoeruby.core/players/player_manager.rb"
 require_relative "./tic_tac_toe_rz/tictactoeruby.core/players/player_movement_manager.rb"
 require_relative "./tic_tac_toe_rz/tictactoeruby.core/players/player_type.rb"
 require_relative "./tic_tac_toe_rz/tictactoeruby.core/players/player.rb"
-require_relative "./tic_tac_toe_rz/tictactoeruby.core/validators/available_spaces_validator.rb"
-require_relative "./tic_tac_toe_rz/tictactoeruby.core/validators/game_over_validator.rb"
-require_relative "./tic_tac_toe_rz/tictactoeruby.core/validators/game_play_validator.rb"
+require_relative "./tic_tac_toe_rz/tictactoeruby.core/game_rules/available_spaces_rules.rb"
+require_relative "./tic_tac_toe_rz/tictactoeruby.core/game_rules/game_over_rules.rb"
+require_relative "./tic_tac_toe_rz/tictactoeruby.core/game_rules/game_play_rules.rb"
 require_relative "./tic_tac_toe_rz/tictactoeruby.core/validators/input_validator.rb"
 require_relative "./tic_tac_toe_rz/tictactoeruby.core/validators/player_selection_validator.rb"
 require_relative "./tic_tac_toe_rz/tictactoeruby.core/validators/player_symbol_validator.rb"
-require_relative "./tic_tac_toe_rz/tictactoeruby.core/validators/tie_game_validator.rb"
+require_relative "./tic_tac_toe_rz/tictactoeruby.core/game_rules/tie_game_rules.rb"
 
 module TicTacToeRZ
 end

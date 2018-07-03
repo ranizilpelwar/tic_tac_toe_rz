@@ -14,10 +14,10 @@ class MockPlayerManager
       player2_type = :Human
 
       # create the players
-      @player1 = TicTacToeRZ::Player.new(player1_type, symbol_one)
-      @player2 = TicTacToeRZ::Player.new(player2_type, symbol_two)
+      @player1 = TicTacToeRZ::Players::Player.new(player1_type, symbol_one)
+      @player2 = TicTacToeRZ::Players::Player.new(player2_type, symbol_two)
       @current_player = @player1
-      @player_manager = TicTacToeRZ::PlayerManager.new(@player1, @player2)
+      @player_manager = TicTacToeRZ::Players::PlayerManager.new(@player1, @player2)
   end
 
   def update_current_player

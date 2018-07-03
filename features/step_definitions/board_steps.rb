@@ -1,9 +1,9 @@
 require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/gameplay/game_board.rb'
-require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/validators/game_play_validator.rb'
+require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/game_rules/game_play_rules.rb'
 require_relative '../../test/players/mock_player_manager.rb'
 
 	When("the board is displayed") do
-		@game_board = TicTacToeRZ::GameBoard.new(TicTacToeRZ::GameBoard.create_board)
+		@game_board = TicTacToeRZ::GamePlay::GameBoard.new(TicTacToeRZ::GamePlay::GameBoard.create_board)
 	end
 
 	Then("the board should have {int} total squares") do |int|
@@ -19,7 +19,7 @@ require_relative '../../test/players/mock_player_manager.rb'
 	end
 
 	When("player with symbol {string} selects square {int}") do |string, int|
-		@evaluated_result = TicTacToeRZ::GamePlayValidator.evaluate_move(@game_board, int.to_s)	
+		@evaluated_result = TicTacToeRZ::GameRules::GamePlayRules.evaluate_move(@game_board, int.to_s)	
 	end
 
 	Then("square {int} can be updated to display the symbol {string}") do |int, string|

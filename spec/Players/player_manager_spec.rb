@@ -5,9 +5,9 @@ require_relative '../../lib/tic_tac_toe_rz/tictactoeruby.core/exceptions/nil_ref
 
 RSpec.describe "a player manager" do
   before(:example) do
-    @player1 = TicTacToeRZ::Player.new(:Human, "X")
-    @player2 = TicTacToeRZ::Player.new(:Computer, "Y")
-    @player_manager = TicTacToeRZ::PlayerManager.new(@player1, @player2)
+    @player1 = TicTacToeRZ::Players::Player.new(:Human, "X")
+    @player2 = TicTacToeRZ::Players::Player.new(:Computer, "Y")
+    @player_manager = TicTacToeRZ::Players::PlayerManager.new(@player1, @player2)
   end
 
   context "intialization" do
@@ -58,12 +58,12 @@ RSpec.describe "a player manager" do
     end
 
     it "returns -1 when player cannot be found" do
-      player = TicTacToeRZ::Player.new(:Human, "O")
+      player = TicTacToeRZ::Players::Player.new(:Human, "O")
       expect(@player_manager.get_player_number(player)).to eq(-1)
     end
 
     it "raises a NilReferenceError when player is nil" do
-      expect{@player_manager.get_player_number(nil)}.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{@player_manager.get_player_number(nil)}.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
   end
 end

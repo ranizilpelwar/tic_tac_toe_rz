@@ -36,7 +36,7 @@ RSpec.describe "a player" do
     end
 
     it "cannot be an empty character" do
-      expect{symbol_valid?("")}.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{symbol_valid?("")}.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
   end
 
@@ -54,7 +54,7 @@ RSpec.describe "a player" do
 	  end
 
     it "cannot be a robot" do
-      expect(TicTacToeRZ::PlayerType.valid?(:Robot)).to be false
+      expect(TicTacToeRZ::Players::PlayerType.valid?(:Robot)).to be false
     end
   end
 
@@ -86,26 +86,26 @@ RSpec.describe "a player" do
 
   describe "intialization" do
     it "raises an InvalidValueError when an invalid symbol is passed in" do
-      expect{ TicTacToeRZ::Player.new(:Human, " ") }.to raise_error(TicTacToeRZ::InvalidValueError)
+      expect{ TicTacToeRZ::Players::Player.new(:Human, " ") }.to raise_error(TicTacToeRZ::Exceptions::InvalidValueError)
     end
 
     it "raises a NilReferenceError when type is nil" do
-      expect{ TicTacToeRZ::Player.new(nil, " ") }.to raise_error(TicTacToeRZ::NilReferenceError)
+      expect{ TicTacToeRZ::Players::Player.new(nil, " ") }.to raise_error(TicTacToeRZ::Exceptions::NilReferenceError)
     end
   end
 
 # Automation Logic
   
   def player(type, symbol)
-    TicTacToeRZ::Player.new(type, symbol)
+    TicTacToeRZ::Players::Player.new(type, symbol)
   end
 
   def symbol_valid?(symbol)
-    TicTacToeRZ::PlayerSymbolValidator.valid?(symbol)
+    TicTacToeRZ::Validators::PlayerSymbolValidator.valid?(symbol)
   end
 
   def player_type(type)
-    TicTacToeRZ::PlayerType.new(type)
+    TicTacToeRZ::Players::PlayerType.new(type)
   end
 end
 
