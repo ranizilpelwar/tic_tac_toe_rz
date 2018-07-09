@@ -9,9 +9,11 @@ This gem includes various types of tests to test the individual components and t
 
 To run the tests, use the following commands on the terminal:
 
-For Test::Unit: rake run_tests
+Install the tools: bundle install
 
-For RSpec: rspec
+For Test::Unit tests: rake run_tests
 
-For Cucumber: cucumber
+For RSpec tests: rspec
+
+For Cucumber tests: cucumber
 
